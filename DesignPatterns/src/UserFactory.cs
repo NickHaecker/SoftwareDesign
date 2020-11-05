@@ -15,7 +15,8 @@ namespace DesignPatterns
             }
             if (userType.Equals(rUser, StringComparison.OrdinalIgnoreCase))
             {
-                return new RegisteredUser("bla", new DateTime(12, 12, 12), new Photo(12, "blub", 5, 5), new List<Playlist> { }, new List<Video> { });
+                APhoto photo1 = CreatePhoto.getPhoto(12, "blub", 5, 5);
+                return new RegisteredUser("bla", new DateTime(12, 12, 12), photo1, new List<Playlist> { }, new List<Video> { });
             }
             else if (userType.Equals(user, StringComparison.OrdinalIgnoreCase))
             {
@@ -23,7 +24,8 @@ namespace DesignPatterns
             }
             else if (userType.Equals(uploader, StringComparison.OrdinalIgnoreCase))
             {
-                return new Uploader(new Channel("blabla", new Photo(12, "blibblab", 5, 5)), new List<Video> { new Video("bli", 300, 12, "16:9") });
+                APhoto photo = CreatePhoto.getPhoto(12, "blibblab", 5, 5);
+                return new Uploader(new Channel("blabla", photo), new List<Video> { new Video("bli", 300, 12, "16:9") });
             }
             return null;
         }

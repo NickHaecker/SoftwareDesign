@@ -34,7 +34,7 @@ namespace DesignPatterns
 
         }
 
-        public void uploadPhotoToChannel(Photo channelPhoto)
+        public void uploadPhotoToChannel(APhoto channelPhoto)
         {
 
         }

@@ -10,11 +10,11 @@ namespace DesignPatterns
             get; set;
         }
         public DateTime birthday { get; set; }
-        public Photo userPhoto { get; set; }
+        public APhoto userPhoto { get; set; }
         public List<Playlist> userPlaylist { get; set; }
         public List<Video> usersFavouriteVideos { get; set; }
 
-        public RegisteredUser(string Username, DateTime Birthday, Photo UserPhoto, List<Playlist> UserPlaylist, List<Video> UsersFavouriteVideos)
+        public RegisteredUser(string Username, DateTime Birthday, APhoto UserPhoto, List<Playlist> UserPlaylist, List<Video> UsersFavouriteVideos)
         {
             username = Username;
             birthday = Birthday;
