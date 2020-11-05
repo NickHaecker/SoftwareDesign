@@ -18,7 +18,8 @@ namespace DesignPatterns
 
         public static void playVideo(Video thisVideo)
         {
-
+            VideoPlayer videoplayer = VideoPlayer.getVideoPlayer();
+            videoplayer.playVideo(thisVideo);
         }
     }
 }

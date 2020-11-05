@@ -15,7 +15,7 @@ namespace DesignPatterns
             }
             if (userType.Equals(rUser, StringComparison.OrdinalIgnoreCase))
             {
-                APhoto photo1 = CreatePhoto.getPhoto(12, "blub", 5, 5);
+                APhoto photo1 = CreatePhoto.getPhoto(12, "blub", -6, 5);
                 return new RegisteredUser("bla", new DateTime(12, 12, 12), photo1, new List<Playlist> { }, new List<Video> { });
             }
             else if (userType.Equals(user, StringComparison.OrdinalIgnoreCase))

@@ -9,7 +9,7 @@ namespace DesignPatterns
             Console.WriteLine("Start");
             UserFactory userFactory = new UserFactory();
 
-            IUser user1 = userFactory.getUser("user");
+            IUser user1 = userFactory.getUser("registereduser");
 
             user1.playVideo();
 
