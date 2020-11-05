@@ -1,0 +1,13 @@
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\Praktikum\SoftwareDesign\ClassDiagramms\bin\Debug\netcoreapp3.1\ClassDiagramms.exe
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\Praktikum\SoftwareDesign\ClassDiagramms\bin\Debug\netcoreapp3.1\ClassDiagramms.deps.json
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\Praktikum\SoftwareDesign\ClassDiagramms\bin\Debug\netcoreapp3.1\ClassDiagramms.runtimeconfig.json
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\Praktikum\SoftwareDesign\ClassDiagramms\bin\Debug\netcoreapp3.1\ClassDiagramms.runtimeconfig.dev.json
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\Praktikum\SoftwareDesign\ClassDiagramms\bin\Debug\netcoreapp3.1\ClassDiagramms.dll
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\Praktikum\SoftwareDesign\ClassDiagramms\bin\Debug\netcoreapp3.1\ClassDiagramms.pdb
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\Praktikum\SoftwareDesign\ClassDiagramms\obj\Debug\netcoreapp3.1\ClassDiagramms.csprojAssemblyReference.cache
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\Praktikum\SoftwareDesign\ClassDiagramms\obj\Debug\netcoreapp3.1\ClassDiagramms.AssemblyInfoInputs.cache
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\Praktikum\SoftwareDesign\ClassDiagramms\obj\Debug\netcoreapp3.1\ClassDiagramms.AssemblyInfo.cs
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\Praktikum\SoftwareDesign\ClassDiagramms\obj\Debug\netcoreapp3.1\ClassDiagramms.csproj.CoreCompileInputs.cache
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\Praktikum\SoftwareDesign\ClassDiagramms\obj\Debug\netcoreapp3.1\ClassDiagramms.dll
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\Praktikum\SoftwareDesign\ClassDiagramms\obj\Debug\netcoreapp3.1\ClassDiagramms.pdb
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\Praktikum\SoftwareDesign\ClassDiagramms\obj\Debug\netcoreapp3.1\ClassDiagramms.genruntimeconfig.cache

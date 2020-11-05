@@ -1,0 +1,13 @@
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\DesignPatterns\bin\Debug\netcoreapp3.1\DesignPatterns.exe
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\DesignPatterns\bin\Debug\netcoreapp3.1\DesignPatterns.deps.json
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\DesignPatterns\bin\Debug\netcoreapp3.1\DesignPatterns.runtimeconfig.json
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\DesignPatterns\bin\Debug\netcoreapp3.1\DesignPatterns.runtimeconfig.dev.json
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\DesignPatterns\bin\Debug\netcoreapp3.1\DesignPatterns.dll
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\DesignPatterns\bin\Debug\netcoreapp3.1\DesignPatterns.pdb
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\DesignPatterns\obj\Debug\netcoreapp3.1\DesignPatterns.csprojAssemblyReference.cache
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\DesignPatterns\obj\Debug\netcoreapp3.1\DesignPatterns.AssemblyInfoInputs.cache
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\DesignPatterns\obj\Debug\netcoreapp3.1\DesignPatterns.AssemblyInfo.cs
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\DesignPatterns\obj\Debug\netcoreapp3.1\DesignPatterns.csproj.CoreCompileInputs.cache
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\DesignPatterns\obj\Debug\netcoreapp3.1\DesignPatterns.dll
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\DesignPatterns\obj\Debug\netcoreapp3.1\DesignPatterns.pdb
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\DesignPatterns\obj\Debug\netcoreapp3.1\DesignPatterns.genruntimeconfig.cache
