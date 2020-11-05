@@ -6,8 +6,9 @@ namespace DesignPatterns
     {
         public void playVideo()
         {
-            Console.WriteLine("simsala");
+            Video video = new Video("video", 200, 250, "4:3");
+            VideoPlayer player = VideoPlayer.getVideoPlayer();
+            player.playVideo(video);
         }
-
     }
 }
