@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "MvrVxI/Sru4wxP+Mr4zv5znGfsMk+eB8oFx5MHpfFToX/CKzRjFRiqRHh4nREb+xHlt3qpfHho54MstUlVE7UQ==",
+  "dgSpecHash": "0/CHMy/B9ys1BFowGg2+9IPowrM8YGkNWMkCq8/TAJyoB34+mc9ghVxNdBFNqtoP/CnqMoAIzNuB2BIqVTX9Iw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Nick\\OneDrive\\HFU\\4.Semester\\Softwaredesign\\SoftwareDesign\\ConsoleProgramm\\ConsoleProgramm.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Nick\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

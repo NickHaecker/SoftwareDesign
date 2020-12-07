@@ -1,0 +1,15 @@
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\ConsoleProgramm\obj\Debug\netcoreapp3.1\ConsoleProgramm.csprojAssemblyReference.cache
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\ConsoleProgramm\obj\Debug\netcoreapp3.1\ConsoleProgramm.AssemblyInfoInputs.cache
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\ConsoleProgramm\obj\Debug\netcoreapp3.1\ConsoleProgramm.AssemblyInfo.cs
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\ConsoleProgramm\obj\Debug\netcoreapp3.1\ConsoleProgramm.csproj.CoreCompileInputs.cache
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\ConsoleProgramm\bin\Debug\netcoreapp3.1\ConsoleProgramm.exe
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\ConsoleProgramm\bin\Debug\netcoreapp3.1\ConsoleProgramm.deps.json
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\ConsoleProgramm\bin\Debug\netcoreapp3.1\ConsoleProgramm.runtimeconfig.json
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\ConsoleProgramm\bin\Debug\netcoreapp3.1\ConsoleProgramm.runtimeconfig.dev.json
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\ConsoleProgramm\bin\Debug\netcoreapp3.1\ConsoleProgramm.dll
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\ConsoleProgramm\bin\Debug\netcoreapp3.1\ConsoleProgramm.pdb
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\ConsoleProgramm\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\ConsoleProgramm\obj\Debug\netcoreapp3.1\ConsoleProgramm.csproj.CopyComplete
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\ConsoleProgramm\obj\Debug\netcoreapp3.1\ConsoleProgramm.dll
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\ConsoleProgramm\obj\Debug\netcoreapp3.1\ConsoleProgramm.pdb
+C:\Users\Nick\OneDrive\HFU\4.Semester\Softwaredesign\SoftwareDesign\ConsoleProgramm\obj\Debug\netcoreapp3.1\ConsoleProgramm.genruntimeconfig.cache
