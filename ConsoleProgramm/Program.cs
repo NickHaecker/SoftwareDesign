@@ -1,7 +1,6 @@
 ﻿using System;
-// using System.Web.Script.Serialization;
 using System.IO;
-using System.Text;
+// using System.Text;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
@@ -9,37 +8,80 @@ namespace ConsoleProgramm
 {
     class Program
     {
-        public List<Actor> actors { get; set; }
+        public static List<Actor> actors { get; set; }
 
-        public List<Movie> movies { get; set; }
+        public static List<Movie> movies { get; set; }
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            // LoadJson();
-            LoadMovies();
-        }
+            Console.WriteLine("Start");
 
-        public static void LoadMovies()
-        {
-            // string dir = System.IO.Path.GetDirectoryName(
-            //             System.Reflection.Assembly.GetExecutingAssembly().Location);
-            using (StreamReader r = new StreamReader("movies.json"))
+            Init();
+            Console.WriteLine("Gib was ein");
+            // switch (Console.ReadLine())
+            // {
+            //     case "1":
+            //         Ausgabe();
+            //         break;
+            // default:
+            //     Ausgabe();
+            //     break;
+            // }
+            switch (Console.ReadLine())
             {
-                // string json = r.ReadToEnd();
-                // List<Movie> items = JsonConvert.DeserializeObject<List<Movie>>(json);
-                Console.WriteLine(r);
+                case "a":
+                    Ausgabe();
+                    break;
+                // case "s":
+                //     Console.WriteLine($"Your result: {num1} - {num2} = " + (num1 - num2));
+                //     break;
+                // case "m":
+                //     Console.WriteLine($"Your result: {num1} * {num2} = " + (num1 * num2));
+                //     break;
+                // case "d":
+                //     Console.WriteLine($"Your result: {num1} / {num2} = " + (num1 / num2));
+                //     break;
+                default:
+                    Ausgabe();
+                    break;
             }
         }
+        public static string Read()
+        {
+            Console.WriteLine("Gib was ein");
+            string String = Console.ReadLine();
+            Console.WriteLine(String);
+            return String;
+        }
+        public static void Init()
+        {
+            LoadMovies();
+            LoadActors();
+        }
 
-        // public static void LoadJson()
-        // {
-        //     // // List<Movie> items;
-        //     // using (StreamReader r = new StreamReader("/src/movies.json"))
-        //     // {
-        //     //     string json = r.ReadToEnd();
-        //     //   List<Movie> items = JsonConvert.DeserializeObject<List<Movie>>(json);
-        //     // }
-        //     // // return items;
-        // }
+        public static void Ausgabe()
+        {
+            foreach (Movie m in movies)
+            {
+                Console.WriteLine("release_year: " + m.release_year + ": box_office" + m.box_office);
+            }
+        }
+        public static void LoadMovies()
+        {
+            using (StreamReader r = new StreamReader("./movies.json"))
+            {
+                string json = r.ReadToEnd();
+                List<Movie> items = JsonConvert.DeserializeObject<List<Movie>>(json);
+                movies = items;
+            }
+        }
+        public static void LoadActors()
+        {
+            using (StreamReader r = new StreamReader("./actors.json"))
+            {
+                string json = r.ReadToEnd();
+                List<Actor> items = JsonConvert.DeserializeObject<List<Actor>>(json);
+                actors = items;
+            }
+        }
     }
 }

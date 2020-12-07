@@ -1,0 +1,72 @@
+[
+  {
+    "actors_name": "Michael Caine",
+    "birthday": "14-03-1933",
+    "nationality": "British"
+  },
+  {
+    "actors_name": "Marlon Brando",
+    "birthday": "03-04-1924",
+    "nationality": "American"
+  },
+  {
+    "actors_name": "Al Pacino",
+    "birthday": "25-04-1940",
+    "nationality": "American"
+  },
+  {
+    "actors_name": "Robert Duvall",
+    "birthday": "05-01-1931",
+    "nationality": "American"
+  },
+  {
+    "actors_name": "Christian Bale",
+    "birthday": "30-01-1974",
+    "nationality": "British"
+  },
+  {
+    "actors_name": "Heath Ledger",
+    "birthday": "04-04-1979",
+    "nationality": "American"
+  },
+  {
+    "actors_name": "Gary Oldman",
+    "birthday": "21-03-1958",
+    "nationality": "British"
+  },
+  {
+    "actors_name": "Morgan Freeman",
+    "birthday": "01-06-1937",
+    "nationality": "American"
+  },
+  {
+    "actors_name": "Brad Pitt",
+    "birthday": "18-12-1963",
+    "nationality": "American"
+  },
+  {
+    "actors_name": "Kevin Spacey",
+    "birthday": "26-07-1959",
+    "nationality": "American"
+  },
+  {
+    "actors_name": "Leonardo DiCaprio",
+    "birthday": "11-11-1974",
+    "nationality": "American"
+  },
+  {
+    "actors_name": "Matt Damon",
+    "birthday": "08-10-1970",
+    "nationality": "American"
+  },
+  {
+    "actors_name": "Jack Nicholson",
+    "birthday": "22-04-1937",
+    "nationality": "American"
+  },
+  {
+    "actors_name": "Mark Wahlberg",
+    "birthday": "05-06-1971",
+    "nationality": "American"
+  }
+]
