@@ -16,30 +16,23 @@ namespace ConsoleProgramm
             Console.WriteLine("Start");
 
             Init();
-            Console.WriteLine("Gib was ein");
-            // switch (Console.ReadLine())
-            // {
-            //     case "1":
-            //         Ausgabe();
-            //         break;
-            // default:
-            //     Ausgabe();
-            //     break;
-            // }
-            switch (Console.ReadLine())
+            // Console.WriteLine("Gib was ein");
+
+            switch (Read())
             {
-                case "a":
+                case "1":
                     Ausgabe();
                     break;
-                // case "s":
-                //     Console.WriteLine($"Your result: {num1} - {num2} = " + (num1 - num2));
-                //     break;
-                // case "m":
-                //     Console.WriteLine($"Your result: {num1} * {num2} = " + (num1 * num2));
-                //     break;
-                // case "d":
-                //     Console.WriteLine($"Your result: {num1} / {num2} = " + (num1 / num2));
-                //     break;
+                case "2":
+                    Console.WriteLine("Nach welchem Schauspieler suchst du?");
+                    string name = Console.ReadLine();
+                    Ausgabe(name);
+                    break;
+                case "3":
+                    Console.WriteLine("Nach welchem Film suchst du?");
+                    string film = Console.ReadLine();
+                    AusgabeMovie(film);
+                    break;
                 default:
                     Ausgabe();
                     break;
@@ -48,10 +41,10 @@ namespace ConsoleProgramm
         public static string Read()
         {
             Console.WriteLine("Gib was ein");
-            string String = Console.ReadLine();
-            Console.WriteLine(String);
-            return String;
+            string s = Console.ReadLine();
+            return s;
         }
+
         public static void Init()
         {
             LoadMovies();
@@ -63,6 +56,29 @@ namespace ConsoleProgramm
             foreach (Movie m in movies)
             {
                 Console.WriteLine("release_year: " + m.release_year + ": box_office" + m.box_office);
+            }
+        }
+        public static void Ausgabe(string name)
+        {
+            for (var i = 0; i < movies.Count; i++)
+            {
+                for (var j = 0; j < movies[i].actors.Count; j++)
+                {
+                    if (movies[i].actors[j] == name)
+                    {
+                        Console.WriteLine(movies[i].movie_name);
+                    }
+                }
+            }
+        }
+        public static void AusgabeMovie(string name)
+        {
+            for (var i = 0; i < movies.Count; i++)
+            {
+                if (movies[i].movie_name == name)
+                {
+                    Console.WriteLine("Release: ", movies[i].release_year + "Box Office: ", movies[i].box_office);
+                }
             }
         }
         public static void LoadMovies()
