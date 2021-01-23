@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2021-01-23T22:04:09.198Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="hPyCFMdHQi_fbVtDrDS7" version="13.10.0" type="embed" pages="3">
+<mxfile host="65bd71144e" modified="2021-01-23T22:13:25.562Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="8luOhxSp00n_-U3k-Yb2" version="13.10.0" type="embed" pages="3">
     <diagram id="yCAYo7vn6bNdRHoJTmrq" name="UseCases">
-        <mxGraphModel dx="1860" dy="1383" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#F1FAEE" math="0" shadow="0">
+        <mxGraphModel dx="1009" dy="689" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#fffffff" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -130,7 +130,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="a24T7AwCA7poDOv9IXqC" name="Aktivitätsdiagramm">
-        <mxGraphModel dx="1356" dy="470" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+        <mxGraphModel dx="1009" dy="689" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#FFFFFF" math="0" shadow="0">
             <root>
                 <mxCell id="0oyUR4dgS2eo9P9nxT2M-0"/>
                 <mxCell id="0oyUR4dgS2eo9P9nxT2M-1" parent="0oyUR4dgS2eo9P9nxT2M-0"/>
@@ -138,18 +138,18 @@
         </mxGraphModel>
     </diagram>
     <diagram id="ZH4X70LGSWkA0T2b_pML" name="Klassendiagramm">
-        &#xa;
+        &#xa;        &#xa;&#xa;
         <mxGraphModel dx="1360" dy="834" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
-            &#xa;
+            &#xa;            &#xa;&#xa;
             <root>
-                &#xa;
+                &#xa;                &#xa;&#xa;
                 <mxCell id="p4V5GPbBJRA2JJwbldar-0"/>
-                &#xa;
+                &#xa;                &#xa;&#xa;
                 <mxCell id="p4V5GPbBJRA2JJwbldar-1" parent="p4V5GPbBJRA2JJwbldar-0"/>
-                &#xa;
+                &#xa;                &#xa;&#xa;
             </root>
-            &#xa;
+            &#xa;            &#xa;&#xa;
         </mxGraphModel>
-        &#xa;
+        &#xa;        &#xa;&#xa;
     </diagram>
 </mxfile>
