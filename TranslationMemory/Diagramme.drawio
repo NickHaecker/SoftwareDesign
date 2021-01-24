@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2021-01-23T22:13:25.562Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="8luOhxSp00n_-U3k-Yb2" version="13.10.0" type="embed" pages="3">
+<mxfile host="65bd71144e" modified="2021-01-24T10:41:22.273Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="iswLyGQe1pchKbzHgKYr" version="13.10.0" type="embed" pages="3">
     <diagram id="yCAYo7vn6bNdRHoJTmrq" name="UseCases">
-        <mxGraphModel dx="1009" dy="689" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#fffffff" math="0" shadow="0">
+        <mxGraphModel dx="1286" dy="605" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#fffffff" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -120,7 +120,7 @@
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="sx9_2WNkkRCyzuz7CPDC-54" value="" style="endArrow=block;endSize=16;endFill=0;html=1;curved=1;labelBackgroundColor=#F1FAEE;strokeColor=#457B9D;fontColor=#1D3557;" parent="1" edge="1">
+                <mxCell id="sx9_2WNkkRCyzuz7CPDC-54" value="" style="endArrow=block;endSize=16;endFill=0;html=1;curved=1;labelBackgroundColor=#F1FAEE;fontColor=#1D3557;strokeColor=#0A0A0A;" parent="1" edge="1">
                     <mxGeometry width="160" relative="1" as="geometry">
                         <mxPoint x="280" y="550" as="sourcePoint"/>
                         <mxPoint x="280" y="330" as="targetPoint"/>
@@ -130,10 +130,13 @@
         </mxGraphModel>
     </diagram>
     <diagram id="a24T7AwCA7poDOv9IXqC" name="Aktivitätsdiagramm">
-        <mxGraphModel dx="1009" dy="689" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#FFFFFF" math="0" shadow="0">
+        <mxGraphModel dx="1116" dy="605" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#FFFFFF" math="0" shadow="0">
             <root>
                 <mxCell id="0oyUR4dgS2eo9P9nxT2M-0"/>
                 <mxCell id="0oyUR4dgS2eo9P9nxT2M-1" parent="0oyUR4dgS2eo9P9nxT2M-0"/>
+                <mxCell id="XfUsRE-6fYatTmZuSXRA-2" value="&lt;span style=&quot;background-color: rgb(18 , 18 , 18)&quot;&gt;Auflistung von unvollständig übersetzten Wörtern&lt;/span&gt;" style="shape=umlFrame;whiteSpace=wrap;html=1;width=230;height=60;fillColor=#050505;strokeWidth=1;strokeColor=#000000;" vertex="1" parent="0oyUR4dgS2eo9P9nxT2M-1">
+                    <mxGeometry x="330" y="130" width="660" height="520" as="geometry"/>
+                </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
