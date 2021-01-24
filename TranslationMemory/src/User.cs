@@ -7,6 +7,7 @@ namespace TranslationMemory
     {
         private Gender _gender;
         private Role _role;
+        private string _UUID;
         public Gender Gender
         {
             get { return _gender; }
@@ -17,10 +18,20 @@ namespace TranslationMemory
             get { return _role; }
             set { _role = value; }
         }
+        public string UUID
+        {
+            get { return _UUID; }
+            set
+            {
+                UUID = value;
+            }
+        }
         public User(Gender gender, Role role)
         {
             _gender = gender;
             _role = role;
+            _UUID = Guid.NewGuid().ToString();
+
         }
         public void SaveWord(Word word)
         {

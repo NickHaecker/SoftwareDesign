@@ -43,5 +43,20 @@ namespace TranslationMemory
             }
             return GetInt();
         }
+        public Gender GetGender(string gender)
+        {
+            if (gender.ToUpper() == Gender.MALE.ToString())
+            {
+                return Gender.MALE;
+            }
+            else if (gender.ToUpper() == Gender.FEMALE.ToString())
+            {
+                return Gender.FEMALE;
+            }
+            else
+            {
+                return Gender.DIVERS;
+            }
+        }
     }
 }

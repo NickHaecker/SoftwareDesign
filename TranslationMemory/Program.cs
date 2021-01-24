@@ -8,7 +8,7 @@ namespace TranslationMemory
         {
             Console.WriteLine("Hallo und herzlich Wilkommen zum Translation Memory Programm");
             System translationmemory = new System();
-            translationmemory.HandleInput();
+            translationmemory.MainLifeCycle();
         }
     }
 }
