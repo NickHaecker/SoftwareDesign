@@ -9,6 +9,8 @@ namespace TranslationMemory
         private UserFactory _userFactory = null;
         private TranslationFactory _translationFactory = null;
 
+        private bool test = false;
+
         public System()
         {
             _userFactory = new UserFactory();
@@ -25,11 +27,19 @@ namespace TranslationMemory
         public void HandleInput()
         {
             int i = 0;
-            while (_registeredUser != null)
+            // while (_registeredUser != null)
+            // {
+            //     Console.WriteLine("Main Programm");
+
+
+            // if (i == 25)
+            // {
+            //     _registeredUser = null;
+            // }
+            // i++;
+            // }
+            while (!test)
             {
-                Console.WriteLine("Main Programm");
-
-
                 if (i == 25)
                 {
                     _registeredUser = null;

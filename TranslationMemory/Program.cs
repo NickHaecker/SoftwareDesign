@@ -6,7 +6,9 @@ namespace TranslationMemory
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hallo und herzlich Wilkommen zum Translation Memory Programm");
+            System translationmemory = new System();
+            translationmemory.HandleInput();
         }
     }
 }
