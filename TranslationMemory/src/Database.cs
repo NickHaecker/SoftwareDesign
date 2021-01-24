@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Collections;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
 namespace TranslationMemory
 {
     class Database
@@ -20,7 +23,7 @@ namespace TranslationMemory
         public string WORD_PATH = "../db/qword";
         public string LANGUAGE_PATH = "../db/language";
 
-        public InterfaceUser GetUser(string username)
+        public InterfaceUser GetUser(string username, int password)
         {
             return null;
         }

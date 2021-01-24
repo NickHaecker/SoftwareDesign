@@ -2,7 +2,7 @@ using System;
 
 namespace TranslationMemory
 {
-    class Language
+    public class Language
     {
         public string _name { get; private set; }
         public string ID { get; private set; }
