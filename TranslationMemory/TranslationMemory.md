@@ -44,5 +44,5 @@ Darüber hinaus ist der Admin berechtigt dem Übersetzer eine Sprache zuzuweisen
 Der Admin muss sich entsprechend an der Software anmelden können, hierfür benötigt der Admin einen Benutzernamen und ein Passwort.
 Für das Anmelden an der Applikation reicht lediglich eine Eingabemaske mit  Benutzername und Passwort. Benutzername und Passwort können hardcodiert im Quellcode überprüft werden, bspw. (admin/1234).
 
-Die Loginmaske ist für den Übersetzer und den Admin genau dieselbe, lediglich über den Benutzer wirdermittelt, welcher Benutzertyp angemeldet ist.
+Die Loginmaske ist für den Übersetzer und den Admin genau dieselbe, lediglich über den Benutzer wird ermittelt, welcher Benutzertyp angemeldet ist.
 
