@@ -10,10 +10,25 @@ namespace TranslationMemory
         private List<Command> _commands = new List<Command>();
 
         private string _userType = null;
+
+        private bool IsUserContaining(string[] command)
+        {
+            bool isusercontaining = false;
+            if (command != null && command.Length > 0)
+                foreach (string type in command)
+                {
+                    if (type == _userType)
+                    {
+                        isusercontaining = true;
+                    }
+                }
+            return isusercontaining;
+        }
         public void InitCommands(string usertype)
         {
             _userType = usertype;
             _commands.Add(new Command("/logout", null));
+            _commands.Add(new Command("/search-word", new string[] { "TranslationMemory.User", "TranslationMemory.Translator" }));
 
         }
         public List<string> GetUserSpecificCommands()
@@ -21,7 +36,7 @@ namespace TranslationMemory
             List<string> commands = new List<string>();
             foreach (Command command in _commands)
             {
-                if (command._userType == _userType || command._userType == null)
+                if (IsUserContaining(command._userType) || command._userType == null)
                 {
                     commands.Add(command._command);
                 }
@@ -29,19 +44,21 @@ namespace TranslationMemory
             return commands;
 
         }
-        public void WriteStringList()
-        {
-            foreach (string command in GetUserSpecificCommands())
-            {
-                Console.WriteLine("Folgende Konsolenbefehle können sie auswählen: " + command);
-            }
-        }
         public void WriteStringList(List<string> commands)
         {
             foreach (string command in commands)
             {
                 Console.WriteLine(command);
             }
+        }
+        public void WriteStringList(List<string> commands, string prefix, string suffix)
+        {
+            Console.WriteLine(prefix);
+            foreach (string command in commands)
+            {
+                Console.WriteLine(command);
+            }
+            Console.WriteLine(suffix);
         }
 
         public string GetStringAnswer(string question)

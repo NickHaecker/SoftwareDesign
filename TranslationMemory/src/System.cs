@@ -27,17 +27,18 @@ namespace TranslationMemory
         }
         private void EnterAsUser()
         {
-            string answer = _inputController.GetStringAnswer("Bitte geben sie ihr geschlecht ein. Sie können wählen zwischen 'Male', 'Female' oder 'Divers'");
-            // string answer = "Male";
+            // string answer = _inputController.GetStringAnswer("Bitte geben sie ihr geschlecht ein. Sie können wählen zwischen 'Male', 'Female' oder 'Divers'");
+            string answer = "Male";
             if (answer.ToUpper() != _inputController.GetGender(answer).ToString())
             {
-                Console.WriteLine("Tut mir leid, aber ihre Eingabe war leider nicht richtig");
+                _inputController.WriteString("Tut mir leid, aber ihre Eingabe war leider nicht richtig");
                 EnterAsUser();
             }
             Role role = Role.USER;
             Gender gender = _inputController.GetGender(answer);
-            _registeredUser = _userFactory.GetUser(role, gender, null, 0, null, null);
-            Database.Instance.SaveUser(_registeredUser);
+            _registeredUser = (User)_userFactory.GetUser(role, gender, null, 0, null, null);
+            List<Language> l = Database.Instance.GetLanguages();
+            // Database.Instance.SaveUser((User)_registeredUser, Role.USER);
         }
         private void Login()
         {
@@ -49,10 +50,10 @@ namespace TranslationMemory
         }
         public void MainLifeCycle()
         {
-            WelcomeView();
-            _inputController.InitCommands(_registeredUser.GetType().ToString());
+            // WelcomeView();
+            // _inputController.InitCommands(_registeredUser.GetType().ToString());
 
-            // EnterAsUser();
+            EnterAsUser();
             // int i = 0;
             while (_registeredUser != null)
             {
@@ -93,7 +94,7 @@ namespace TranslationMemory
         }
         private void MainLifeCycleHandleInput()
         {
-            _inputController.WriteStringList();
+            _inputController.WriteStringList(_inputController.GetUserSpecificCommands(), "Zwischen folgende Konsolenbefehle können sie auswählen: ", null);
             string answer = _inputController.GetStringAnswer();
             if (_inputController.IsInputCorrectAt(answer))
             {
@@ -101,6 +102,7 @@ namespace TranslationMemory
                 {
                     case "/logout":
                         _inputController.WriteString("Aufwiedersehen und bis zum nächsten mal /n Wollen Sie sich erneut anmelden oder das Programm beenden?");
+                        Database.Instance.SaveUser((User)_registeredUser, Role.USER);
                         _registeredUser = null;
                         break;
                     default:
@@ -133,7 +135,7 @@ namespace TranslationMemory
                 case "/end":
                     break;
                 default:
-                    Console.WriteLine("Sie haben eine falsche Eingabe getätigt. Bitte versuchen sie es erneut!");
+                    _inputController.WriteString("Sie haben eine falsche Eingabe getätigt. Bitte versuchen sie es erneut!");
                     SayingGoodbye();
                     break;
             }

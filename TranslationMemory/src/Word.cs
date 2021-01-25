@@ -6,11 +6,11 @@ namespace TranslationMemory
 {
     class Word
     {
-        public string ID { get; private set; }
+        public string _UUID { get; private set; }
         public string _word { get; private set; }
-        public Word(string id, string word)
+        public Word(string word)
         {
-            ID = id;
+            _UUID = _UUID = Guid.NewGuid().ToString();
             _word = word;
         }
         public void AddTranslation(AbstractTranslation translation)

@@ -9,7 +9,7 @@ namespace TranslationMemory
         private Role _role;
         private string _UUID;
 
-        public List<Word> _addedWords { get; private set; }
+        public List<Word> _addedWords = new List<Word>();
         public Gender Gender
         {
             get { return _gender; }

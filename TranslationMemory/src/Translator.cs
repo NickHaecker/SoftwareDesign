@@ -9,7 +9,7 @@ namespace TranslationMemory
         public int _password { get; private set; }
         public Language _language { get; private set; }
 
-        public List<Translation> _addedTranslations { get; private set; }
+        public List<Translation> _addedTranslations = new List<Translation>();
 
         public Translator(Gender gender, Role role, string username, int password, Language language, List<Translation> translations, List<Word> words) : base(gender, role, words)
         {
