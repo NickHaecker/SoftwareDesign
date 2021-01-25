@@ -92,18 +92,27 @@ namespace TranslationMemory
         }
         private void MainLifeCycleHandleInput()
         {
-            _inputController.GetUserSpecificCommands();
+            _inputController.WriteStringList();
             string answer = _inputController.GetStringAnswer();
-            switch (answer)
+            if (_inputController.IsInputCorrectAt(answer))
             {
-                case "/logout":
-                    _inputController.WriteString("Aufwiedersehen und bis zum nächsten mal /n Wollen Sie sich erneut anmelden oder das Programm beenden?");
-                    _registeredUser = null;
-                    break;
-                default:
-                    MainLifeCycleHandleInput();
-                    break;
+                switch (answer)
+                {
+                    case "/logout":
+                        _inputController.WriteString("Aufwiedersehen und bis zum nächsten mal /n Wollen Sie sich erneut anmelden oder das Programm beenden?");
+                        _registeredUser = null;
+                        break;
+                    default:
+                        MainLifeCycleHandleInput();
+                        break;
+                }
             }
+            else
+            {
+                _inputController.WriteString("Leider haben sie keine Berechtigung auf diesen Befehl, versuchen sie es bitte erneut!");
+                MainLifeCycleHandleInput();
+            }
+
         }
         private void ShowUncompleteTranslatetWords()
         {

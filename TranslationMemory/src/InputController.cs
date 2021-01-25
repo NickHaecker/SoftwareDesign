@@ -16,9 +16,8 @@ namespace TranslationMemory
             _commands.Add(new Command("/logout", null));
 
         }
-        public void GetUserSpecificCommands()
+        public List<string> GetUserSpecificCommands()
         {
-
             List<string> commands = new List<string>();
             foreach (Command command in _commands)
             {
@@ -27,9 +26,21 @@ namespace TranslationMemory
                     commands.Add(command._command);
                 }
             }
-            foreach (string command in commands)
+            return commands;
+
+        }
+        public void WriteStringList()
+        {
+            foreach (string command in GetUserSpecificCommands())
             {
                 Console.WriteLine("Folgende Konsolenbefehle können sie auswählen: " + command);
+            }
+        }
+        public void WriteStringList(List<string> commands)
+        {
+            foreach (string command in commands)
+            {
+                Console.WriteLine(command);
             }
         }
 
@@ -84,6 +95,18 @@ namespace TranslationMemory
             {
                 return Gender.DIVERS;
             }
+        }
+        public bool IsInputCorrectAt(string answer)
+        {
+            bool isanswerinlist = false;
+            foreach (string command in GetUserSpecificCommands())
+            {
+                if (command == answer)
+                {
+                    isanswerinlist = true;
+                }
+            }
+            return isanswerinlist;
         }
     }
 }
