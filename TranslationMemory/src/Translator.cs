@@ -9,11 +9,14 @@ namespace TranslationMemory
         public int _password { get; private set; }
         public Language _language { get; private set; }
 
-        public Translator(Gender gender, Role role, string username, int password, Language language) : base(gender, role)
+        public List<Translation> _addedTranslations { get; private set; }
+
+        public Translator(Gender gender, Role role, string username, int password, Language language, List<Translation> translations, List<Word> words) : base(gender, role, words)
         {
             _userName = username;
             _password = password;
             _language = language;
+            _addedTranslations = translations;
         }
         public void SetLanguage(Language language)
         {

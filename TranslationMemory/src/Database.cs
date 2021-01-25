@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.IO;
 
 namespace TranslationMemory
 {
@@ -18,12 +19,12 @@ namespace TranslationMemory
                 return _instance;
             }
         }
-        private string TRANSLATION_PATH = "../db/translation/translator.json";
-        private string USER_PATH = "../db/user/user.json";
-        private string TRANSLATOR_PATH = "../db/user/translator.json";
-        private string ADMIN_PATH = "../db/user/admin.json";
-        private string WORD_PATH = "../db/word";
-        private string LANGUAGE_PATH = "../db/language";
+        private string TRANSLATION_PATH = "./db/translation/translator.json";
+        private string USER_PATH = "./db/user";
+        private string TRANSLATOR_PATH = "./db/user/translator.json";
+        private string ADMIN_PATH = "./db/user/admin.json";
+        private string WORD_PATH = "./db/word";
+        private string LANGUAGE_PATH = "./db/language";
 
         public InterfaceUser GetUser(string username, int password)
         {
@@ -31,7 +32,9 @@ namespace TranslationMemory
         }
         public void SaveUser(InterfaceUser user)
         {
-
+            string jsonString = JsonSerializer.Serialize(user);
+            string file = USER_PATH + "/" + user.UUID + ".json";
+            File.WriteAllText(file, jsonString);
         }
         // public void AddTranslator()
         public Word GetWord(string id)

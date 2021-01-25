@@ -36,7 +36,8 @@ namespace TranslationMemory
             }
             Role role = Role.USER;
             Gender gender = _inputController.GetGender(answer);
-            _registeredUser = _userFactory.GetUser(role, gender, null, 0);
+            _registeredUser = _userFactory.GetUser(role, gender, null, 0, null, null);
+            Database.Instance.SaveUser(_registeredUser);
         }
         private void Login()
         {
