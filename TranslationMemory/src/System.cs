@@ -110,7 +110,8 @@ namespace TranslationMemory
                         if (WORD == null)
                         {
                             _inputController.WriteString("Tut uns leid, das Wort " + word + " haben wir leider nicht in unserem System gefunden, wir fügen ihnen Ihr Wort dem System hinzu");
-                            _dataTransferObject.CreateWord(word);
+                            User u = (User)_registeredUser;
+                            u.SaveWord(_dataTransferObject.CreateWord(word));
                         }
                         else
                         {

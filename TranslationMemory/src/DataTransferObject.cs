@@ -80,10 +80,11 @@ namespace TranslationMemory
             }
             return null;
         }
-        public void CreateWord(string word)
+        public Word CreateWord(string word)
         {
             Word newWord = new Word(word, GetUUID());
             Database.Instance.SaveWord(newWord);
+            return newWord;
         }
     }
 }
