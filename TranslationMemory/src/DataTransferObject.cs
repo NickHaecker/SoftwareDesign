@@ -83,7 +83,7 @@ namespace TranslationMemory
         public void CreateWord(string word)
         {
             Word newWord = new Word(word, GetUUID());
-            
+            Database.Instance.SaveWord(newWord);
         }
     }
 }

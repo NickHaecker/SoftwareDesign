@@ -76,6 +76,7 @@ namespace TranslationMemory
             string jsonString = JsonSerializer.Serialize(word);
             string file = WORD_PATH + "/" + word._UUID + ".json";
             WriteFile(file, jsonString);
+            Console.WriteLine("Wort wurde ins System gestellt");
         }
         public void SaveWord(InterfaceUser user)
         {
