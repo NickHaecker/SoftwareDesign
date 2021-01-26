@@ -28,13 +28,13 @@ namespace TranslationMemory
         }
         public string _userName { get; private set; }
         public int _password { get; private set; }
-        public Admin(Gender gender, Role role, string username, int password)
+        public Admin(Gender gender, Role role, string username, int password, string uuid)
         {
             _gender = gender;
             _role = role;
             _userName = username;
             _password = password;
-            _UUID = Guid.NewGuid().ToString();
+            _UUID = uuid;
         }
         public void DelegateTranslator(Translator translator, Language language)
         {

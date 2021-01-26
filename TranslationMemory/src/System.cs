@@ -7,17 +7,30 @@ namespace TranslationMemory
     class System
     {
         private InterfaceUser _registeredUser = null;
-        private UserFactory _userFactory = null;
-        private TranslationFactory _translationFactory = null;
+        private DataTransferObject _dataTransferObject = null;
         private InputController _inputController = null;
 
         // private bool test = false;
 
         public System()
         {
-            _userFactory = new UserFactory();
-            _translationFactory = new TranslationFactory();
+            _dataTransferObject = new DataTransferObject();
             _inputController = new InputController();
+        }
+        public void MainLifeCycle()
+        {
+            WelcomeView();
+            _inputController.InitCommands(_registeredUser.GetType().ToString());
+
+            // EnterAsUser();
+            // int i = 0;
+            while (_registeredUser != null)
+            {
+
+                MainLifeCycleHandleInput();
+
+            }
+            SayingGoodbye();
         }
         private void RegisterUser()
         {
@@ -27,8 +40,8 @@ namespace TranslationMemory
         }
         private void EnterAsUser()
         {
-            // string answer = _inputController.GetStringAnswer("Bitte geben sie ihr geschlecht ein. Sie können wählen zwischen 'Male', 'Female' oder 'Divers'");
-            string answer = "Male";
+            string answer = _inputController.GetStringAnswer("Bitte geben sie ihr geschlecht ein. Sie können wählen zwischen 'Male', 'Female' oder 'Divers'");
+            // string answer = "Male";
             if (answer.ToUpper() != _inputController.GetGender(answer).ToString())
             {
                 _inputController.WriteString("Tut mir leid, aber ihre Eingabe war leider nicht richtig");
@@ -36,8 +49,9 @@ namespace TranslationMemory
             }
             Role role = Role.USER;
             Gender gender = _inputController.GetGender(answer);
-            _registeredUser = (User)_userFactory.GetUser(role, gender, null, 0, null, null);
-            List<Language> l = Database.Instance.GetLanguages();
+            _registeredUser = (User)_dataTransferObject.CreateNewUser(role, gender, null, 0, new List<Word>(), null);
+            _dataTransferObject.SaveUser((User)_registeredUser, _registeredUser.Role);
+            List<Language> l = _dataTransferObject.GetLanguages();
             // Database.Instance.SaveUser((User)_registeredUser, Role.USER);
         }
         private void Login()
@@ -48,30 +62,7 @@ namespace TranslationMemory
             _inputController.WriteInt(password);
             // Database.Instance
         }
-        public void MainLifeCycle()
-        {
-            // WelcomeView();
-            // _inputController.InitCommands(_registeredUser.GetType().ToString());
 
-            EnterAsUser();
-            // int i = 0;
-            while (_registeredUser != null)
-            {
-
-                MainLifeCycleHandleInput();
-                // Console.WriteLine(_registeredUser.GetType());
-                // Console.WriteLine("Main Programm");
-
-
-                // if (i == 25)
-                // {
-
-                //     _registeredUser = null;
-                // }
-                // i++;
-            }
-            SayingGoodbye();
-        }
         private void WelcomeView()
         {
             string answer = _inputController.GetStringAnswer("Willst du dich Registrieren oder hast du bereits ein Konto bei uns? Tippe '/register' um dich zu registerieren, '/guest' um als User fortzufahren oder '/login' um dich anzumelden.");
@@ -102,8 +93,17 @@ namespace TranslationMemory
                 {
                     case "/logout":
                         _inputController.WriteString("Aufwiedersehen und bis zum nächsten mal /n Wollen Sie sich erneut anmelden oder das Programm beenden?");
-                        Database.Instance.SaveUser((User)_registeredUser, Role.USER);
+                        _dataTransferObject.SaveUser((User)_registeredUser, _registeredUser.Role);
                         _registeredUser = null;
+                        break;
+                    case "/search-word":
+                        string word = _inputController.GetStringAnswer("Nach welchem Wort wollen Sie suchen?");
+                        Word WORD = _dataTransferObject.GetWord(word);
+                        if (WORD == null)
+                        {
+                            _inputController.WriteString("Tut uns leid, das Wort " + word + " haben wir leider nicht in unserem System gefunden, wir fügen ihnen Ihr Wort dem System hinzu");
+                            _dataTransferObject.CreateWord(word);
+                        }
                         break;
                     default:
                         MainLifeCycleHandleInput();

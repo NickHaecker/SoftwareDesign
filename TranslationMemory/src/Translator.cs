@@ -11,7 +11,7 @@ namespace TranslationMemory
 
         public List<Translation> _addedTranslations = new List<Translation>();
 
-        public Translator(Gender gender, Role role, string username, int password, Language language, List<Translation> translations, List<Word> words) : base(gender, role, words)
+        public Translator(Gender gender, Role role, string username, int password, Language language, List<Translation> translations, List<Word> words, string uuid) : base(gender, role, words, uuid)
         {
             _userName = username;
             _password = password;

@@ -9,11 +9,16 @@ namespace TranslationMemory
         private Role _role;
         private string _UUID;
 
-        public List<Word> _addedWords = new List<Word>();
+        private List<Word> _addedWords;
         public Gender Gender
         {
             get { return _gender; }
             set { _gender = value; }
+        }
+        public List<Word> AddedWords
+        {
+            get { return _addedWords; }
+            set { _addedWords = value; }
         }
         public Role Role
         {
@@ -28,17 +33,17 @@ namespace TranslationMemory
                 UUID = value;
             }
         }
-        public User(Gender gender, Role role, List<Word> words)
+        public User(Gender gender, Role role, List<Word> words, string uuid)
         {
             _gender = gender;
             _role = role;
-            _UUID = Guid.NewGuid().ToString();
+            _UUID = uuid;
             _addedWords = words;
 
         }
         public void SaveWord(Word word)
         {
-
+            _addedWords.Add(word);
         }
     }
 }

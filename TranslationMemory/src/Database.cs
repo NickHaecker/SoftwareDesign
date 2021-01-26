@@ -37,26 +37,29 @@ namespace TranslationMemory
             switch (role)
             {
                 case Role.ADMIN:
+                    user = (Admin)user;
                     jsonString = JsonSerializer.Serialize((Admin)user);
                     file = ADMIN_PATH + "/" + user.UUID + ".json";
                     break;
                 case Role.TRANSLATOR:
-                    jsonString = JsonSerializer.Serialize((Translation)user);
+                    user = (Translator)user;
+                    jsonString = JsonSerializer.Serialize((Translator)user);
                     file = TRANSLATOR_PATH + "/" + user.UUID + ".json";
                     break;
                 default:
+                    user = (User)user;
                     jsonString = JsonSerializer.Serialize((User)user);
                     file = USER_PATH + "/" + user.UUID + ".json";
                     break;
             }
+            WriteFile(file, jsonString);
+        }
+        private void WriteFile(string file, string jsonString)
+        {
             File.WriteAllText(file, jsonString);
         }
         // public void AddTranslator()
         public Word GetWord(string id)
-        {
-            return null;
-        }
-        public List<Word> GetWords()
         {
             return null;
         }
@@ -70,7 +73,9 @@ namespace TranslationMemory
         }
         public void SaveWord(Word word)
         {
-
+            string jsonString = JsonSerializer.Serialize(word);
+            string file = WORD_PATH + "/" + word._UUID + ".json";
+            WriteFile(file, jsonString);
         }
         public void SaveWord(InterfaceUser user)
         {
@@ -82,19 +87,37 @@ namespace TranslationMemory
             string file = LANGUAGE_PATH + "/" + language.ID + ".json";
             File.WriteAllText(file, jsonString);
         }
-        public List<Language> GetLanguages()
+        public List<language> GetLanguages()
         {
-            List<Language> languages = new List<Language>();
-            foreach (string fileName in Directory.GetFiles(LANGUAGE_PATH))
+            List<language> languages = new List<language>();
+            foreach (string jsonString in GetFileNames(LANGUAGE_PATH))
             {
                 language l;
-                var jsonString = File.ReadAllText(fileName);
                 l = JsonSerializer.Deserialize<language>(jsonString);
-                Language language = new Language(l._name, l.ID);
-                languages.Add(language);
+                languages.Add(l);
             }
-
             return languages;
+        }
+        public List<word> GetWords()
+        {
+            List<word> words = new List<word>();
+            foreach (string jsonString in GetFileNames(WORD_PATH))
+            {
+                word w;
+                w = JsonSerializer.Deserialize<word>(jsonString);
+                words.Add(w);
+            }
+            return words;
+        }
+        private List<string> GetFileNames(string path)
+        {
+            List<string> strings = new List<string>();
+            foreach (string fileName in Directory.GetFiles(path))
+            {
+                string jsonString = File.ReadAllText(fileName);
+                strings.Add(jsonString);
+            }
+            return strings;
         }
     }
 }

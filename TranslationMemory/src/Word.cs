@@ -8,9 +8,9 @@ namespace TranslationMemory
     {
         public string _UUID { get; private set; }
         public string _word { get; private set; }
-        public Word(string word)
+        public Word(string word, string uuid)
         {
-            _UUID = _UUID = Guid.NewGuid().ToString();
+            _UUID = uuid;
             _word = word;
         }
         public void AddTranslation(AbstractTranslation translation)
@@ -33,5 +33,6 @@ namespace TranslationMemory
         {
             return null;
         }
+
     }
 }
