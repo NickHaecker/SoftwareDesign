@@ -127,5 +127,31 @@ namespace TranslationMemory
             }
             return wordTranslations;
         }
+        public int GetWordsInDatabaseLength()
+        {
+            return GetWords().Count;
+        }
+        public List<string> GetPercentageOfCorrectTranslatetWords()
+        {
+            List<string> counts = new List<string>();
+            foreach (Word word in GetWords())
+            {
+                int count = 0;
+                foreach (AbstractTranslation translation in GetTranslationByWord(word))
+                {
+                    if (translation.Translation != "(Keine)")
+                    {
+                        count++;
+                    }
+                }
+                string wordCount = "Für das Wort " + word._word + " ist die Übersetzung zu " + CalculatePercentage(GetTranslationByWord(word).Count, count) + "%" + " vollstädnig.";
+                counts.Add(wordCount);
+            }
+            return counts;
+        }
+        private int CalculatePercentage(int length, int count)
+        {
+            return count / length * 100;
+        }
     }
 }

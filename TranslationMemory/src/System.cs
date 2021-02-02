@@ -145,6 +145,11 @@ namespace TranslationMemory
                         }
                         _inputController.WriteAddedWords(createdWords);
                         break;
+                    case "/get-count-of-all-words-in-database":
+                        string count = "Zurzeit sind " + _dataTransferObject.GetWordsInDatabaseLength() + " in der Datenbank gespeichert";
+                        List<string> percentages = _dataTransferObject.GetPercentageOfCorrectTranslatetWords();
+                        _inputController.WriteStringList(percentages, count, null);
+                        break;
                     default:
                         MainLifeCycleHandleInput();
                         break;

@@ -30,7 +30,7 @@ namespace TranslationMemory
             _commands.Add(new Command("/logout", null));
             _commands.Add(new Command("/search-word", new string[] { "TranslationMemory.User", "TranslationMemory.Translator" }));
             _commands.Add(new Command("/get-my-words", new string[] { "TranslationMemory.User", "TranslationMemory.Translator" }));
-
+            _commands.Add(new Command("/get-count-of-all-words-in-database", new string[] { "TranslationMemory.User", "TranslationMemory.Translator" }));
         }
         public List<string> GetUserSpecificCommands()
         {
@@ -144,7 +144,8 @@ namespace TranslationMemory
                 string command = word._word;
                 commands.Add(command);
             }
-            WriteStringList(commands, "Diese Worte hast du bereits erstellt: ", null);
+            string prefix = "Du hast " + commands.Count + " erstellt: ";
+            WriteStringList(commands, prefix, null);
         }
     }
 }
