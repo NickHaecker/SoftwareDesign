@@ -16,6 +16,14 @@ namespace TranslationMemory
         {
             _dataTransferObject = new DataTransferObject();
             _inputController = new ConsoleController();
+            // CreateAdminAndTranslator();
+        }
+        private void CreateAdminAndTranslator()
+        {
+            InterfaceUser translator = (Translator)_dataTransferObject.CreateNewUser(Role.TRANSLATOR, Gender.MALE, "translator1234", 1234, new List<Word>(), new List<Translation>());
+            InterfaceUser admin = (Admin)_dataTransferObject.CreateNewUser(Role.ADMIN, Gender.MALE, "admin1234", 1234, new List<Word>(), new List<Translation>());
+            _dataTransferObject.SaveUser(translator, Role.TRANSLATOR);
+            _dataTransferObject.SaveUser(admin, Role.ADMIN);
         }
         private void RegisterUser()
         {

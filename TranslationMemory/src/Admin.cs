@@ -8,6 +8,8 @@ namespace TranslationMemory
         private Gender _gender;
         private Role _role;
         private string _UUID;
+        public string _userName { get; private set; }
+        public int _password { get; private set; }
         public Gender Gender
         {
             get { return _gender; }
@@ -26,8 +28,7 @@ namespace TranslationMemory
                 UUID = value;
             }
         }
-        public string _userName { get; private set; }
-        public int _password { get; private set; }
+
         public Admin(Gender gender, Role role, string username, int password, string uuid)
         {
             _gender = gender;
