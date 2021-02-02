@@ -5,11 +5,11 @@ namespace TranslationMemory
 {
     class User : InterfaceUser
     {
-        private Gender _gender;
-        private Role _role;
-        private string _UUID;
+        protected Gender _gender;
+        protected Role _role;
+        protected string _UUID;
 
-        private List<Word> _addedWords;
+        protected List<Word> _addedWords;
         public Gender Gender
         {
             get { return _gender; }
@@ -44,6 +44,10 @@ namespace TranslationMemory
         public void SaveWord(Word word)
         {
             _addedWords.Add(word);
+        }
+        public List<Word> GetAddedWords()
+        {
+            return _addedWords;
         }
     }
 }

@@ -130,6 +130,21 @@ namespace TranslationMemory
                             _inputController.WriteTranslationsByWord(_dataTransferObject.GetTranslationByWord(WORD), WORD);
                         }
                         break;
+                    case "/get-my-words":
+                        List<Word> createdWords = new List<Word>();
+                        switch (_registeredUser.Role)
+                        {
+                            case Role.TRANSLATOR:
+                                Translator t = (Translator)_registeredUser;
+                                createdWords = t.GetAddedWords();
+                                break;
+                            default:
+                                User u = (User)_registeredUser;
+                                createdWords = u.GetAddedWords();
+                                break;
+                        }
+                        _inputController.WriteAddedWords(createdWords);
+                        break;
                     default:
                         MainLifeCycleHandleInput();
                         break;

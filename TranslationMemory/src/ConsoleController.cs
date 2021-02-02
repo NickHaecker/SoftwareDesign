@@ -29,6 +29,7 @@ namespace TranslationMemory
             _userType = usertype;
             _commands.Add(new Command("/logout", null));
             _commands.Add(new Command("/search-word", new string[] { "TranslationMemory.User", "TranslationMemory.Translator" }));
+            _commands.Add(new Command("/get-my-words", new string[] { "TranslationMemory.User", "TranslationMemory.Translator" }));
 
         }
         public List<string> GetUserSpecificCommands()
@@ -134,6 +135,16 @@ namespace TranslationMemory
                 commands.Add(command);
             }
             WriteStringList(commands, word._word, null);
+        }
+        public void WriteAddedWords(List<Word> words)
+        {
+            List<string> commands = new List<string>();
+            foreach (Word word in words)
+            {
+                string command = word._word;
+                commands.Add(command);
+            }
+            WriteStringList(commands, "Diese Worte hast du bereits erstellt: ", null);
         }
     }
 }
