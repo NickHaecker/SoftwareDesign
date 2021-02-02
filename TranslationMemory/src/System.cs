@@ -157,7 +157,7 @@ namespace TranslationMemory
             }
             else
             {
-                _inputController.WriteString("Leider haben sie keine Berechtigung auf diesen Befehl, versuchen sie es bitte erneut!");
+                _inputController.WriteErrorMessage();
                 MainLifeCycleHandleInput();
             }
 
@@ -180,7 +180,7 @@ namespace TranslationMemory
                 case "/end":
                     break;
                 default:
-                    _inputController.WriteString("Sie haben eine falsche Eingabe getätigt. Bitte versuchen sie es erneut!");
+                    _inputController.WriteErrorMessage();
                     SayingGoodbye();
                     break;
             }

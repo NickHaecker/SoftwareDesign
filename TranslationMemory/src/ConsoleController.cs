@@ -147,5 +147,9 @@ namespace TranslationMemory
             string prefix = "Du hast " + commands.Count + " erstellt: ";
             WriteStringList(commands, prefix, null);
         }
+        public void WriteErrorMessage()
+        {
+            Console.WriteLine("Sie müssen einen gültigen Befehl eingeben!");
+        }
     }
 }
