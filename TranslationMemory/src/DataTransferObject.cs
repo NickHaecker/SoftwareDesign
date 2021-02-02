@@ -15,7 +15,6 @@ namespace TranslationMemory
         }
         public InterfaceUser CreateNewUser(Role role, Gender gender, string username, int password, List<Word> words, List<Translation> translations)
         {
-
             switch (role)
             {
                 case Role.ADMIN:
@@ -25,6 +24,19 @@ namespace TranslationMemory
                 default:
                     return (User)_userFactory.GetUser(role, gender, username, password, words, translations, GetUUID());
             }
+        }
+        public InterfaceUser CreateUser(string username, int password)
+        {
+            // switch (role)
+            // {
+            //     case Role.ADMIN:
+            //         return (Admin)_userFactory.GetUser(role, gender, username, password, words, translations, uuid);
+            //     case Role.TRANSLATOR:
+            //         return (Translator)_userFactory.GetUser(role, gender, username, password, words, translations, uuid);
+            //     default:
+            //         return (User)_userFactory.GetUser(role, gender, username, password, words, translations, uuid);
+            // }
+            return null;
         }
         public List<Language> GetLanguages()
         {
