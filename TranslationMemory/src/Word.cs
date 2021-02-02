@@ -13,7 +13,7 @@ namespace TranslationMemory
             _UUID = uuid;
             _word = word;
         }
-        public void AddTranslation(AbstractTranslation translation)
+        public void AddTranslation(DataTransferObject dto)
         {
 
         }

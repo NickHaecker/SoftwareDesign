@@ -5,7 +5,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 namespace TranslationMemory
 {
-    class InputController
+    class ConsoleController
     {
         private List<Command> _commands = new List<Command>();
 
@@ -124,6 +124,16 @@ namespace TranslationMemory
                 }
             }
             return isanswerinlist;
+        }
+        public void WriteTranslationsByWord(List<AbstractTranslation> translations, Word word)
+        {
+            List<string> commands = new List<string>();
+            foreach (AbstractTranslation translation in translations)
+            {
+                string command = translation.LANGUAGE._name + ": " + translation.Translation;
+                commands.Add(command);
+            }
+            WriteStringList(commands, word._word, null);
         }
     }
 }

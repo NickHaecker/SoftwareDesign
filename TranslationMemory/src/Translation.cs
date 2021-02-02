@@ -10,5 +10,10 @@ namespace TranslationMemory
         {
             Translation = translation;
         }
+
+        // public override translation GetThis()
+        // {
+        //     return this;
+        // }
     }
 }

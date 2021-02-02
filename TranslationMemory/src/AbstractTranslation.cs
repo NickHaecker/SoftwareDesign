@@ -2,10 +2,10 @@ namespace TranslationMemory
 {
     abstract class AbstractTranslation
     {
-        protected Language LANGUAGE { get; set; }
-        protected string Translation { get; set; }
-        protected string WORD_ID { get; set; }
-        protected string AUTHOR { get; set; }
+        public Language LANGUAGE { get; protected set; }
+        public string Translation { get; protected set; }
+        public string WORD_ID { get; protected set; }
+        public string AUTHOR { get; protected set; }
 
         protected AbstractTranslation(Language language, string translation, string wordID, string author)
         {
@@ -15,5 +15,7 @@ namespace TranslationMemory
             AUTHOR = author;
         }
         public abstract void SetTranslation(string translation);
+
+        // public abstract translation GetThis();
     }
 }

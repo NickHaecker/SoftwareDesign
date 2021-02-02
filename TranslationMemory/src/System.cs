@@ -8,14 +8,14 @@ namespace TranslationMemory
     {
         private InterfaceUser _registeredUser = null;
         private DataTransferObject _dataTransferObject = null;
-        private InputController _inputController = null;
+        private ConsoleController _inputController = null;
 
         // private bool test = false;
 
         public System()
         {
             _dataTransferObject = new DataTransferObject();
-            _inputController = new InputController();
+            _inputController = new ConsoleController();
         }
         private void RegisterUser()
         {
@@ -110,22 +110,24 @@ namespace TranslationMemory
                         if (WORD == null)
                         {
                             _inputController.WriteString("Tut uns leid, das Wort " + word + " haben wir leider nicht in unserem System gefunden, wir fügen ihnen Ihr Wort dem System hinzu");
+                            Word _word = _dataTransferObject.CreateWord(word);
                             switch (_registeredUser.Role)
                             {
                                 case Role.TRANSLATOR:
                                     Translator t = (Translator)_registeredUser;
-                                    t.SaveWord(_dataTransferObject.CreateWord(word));
+                                    CreateTranslations(_word._UUID, t.UUID);
+                                    t.SaveWord(_word);
                                     break;
                                 default:
                                     User u = (User)_registeredUser;
-                                    u.SaveWord(_dataTransferObject.CreateWord(word));
+                                    CreateTranslations(_word._UUID, u.UUID);
+                                    u.SaveWord(_word);
                                     break;
                             }
                         }
                         else
                         {
-                            string message = "Ihr gesuchtes Wort: " + WORD._word;
-                            _inputController.WriteString(message);
+                            _inputController.WriteTranslationsByWord(_dataTransferObject.GetTranslationByWord(WORD), WORD);
                         }
                         break;
                     default:
@@ -167,6 +169,10 @@ namespace TranslationMemory
         private void HandleInput(string answer)
         {
 
+        }
+        private void CreateTranslations(string wordUuid, string userUuid)
+        {
+            _dataTransferObject.CreateTranslation(wordUuid, userUuid, true);
         }
     }
 }

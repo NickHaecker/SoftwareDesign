@@ -67,16 +67,24 @@ namespace TranslationMemory
         {
             return null;
         }
+
         public AbstractTranslation GetTranslation(InterfaceUser user)
         {
             return null;
+        }
+        public void CreateTranslation(AbstractTranslation translation)
+        {
+            string jsonString = JsonSerializer.Serialize(translation);
+            string file = TRANSLATION_PATH + "/" + translation.LANGUAGE._name + translation.WORD_ID + ".json";
+            WriteFile(file, jsonString);
+            Console.WriteLine("Übersetzung: " + translation.LANGUAGE._name + " wurde ins System gestellt");
         }
         public void SaveWord(Word word)
         {
             string jsonString = JsonSerializer.Serialize(word);
             string file = WORD_PATH + "/" + word._UUID + ".json";
             WriteFile(file, jsonString);
-            Console.WriteLine("Wort wurde ins System gestellt");
+            Console.WriteLine("Wort: " + word._word + " wurde ins System gestellt");
         }
         public void SaveWord(InterfaceUser user)
         {
@@ -120,5 +128,17 @@ namespace TranslationMemory
             }
             return strings;
         }
+        public List<translation> GetTranslations()
+        {
+            List<translation> translations = new List<translation>();
+            foreach (string jsonString in GetFileNames(TRANSLATION_PATH))
+            {
+                translation t;
+                t = JsonSerializer.Deserialize<translation>(jsonString);
+                translations.Add(t);
+            }
+            return translations;
+        }
+        // public List<AbstractTranslation> GetTranslations()
     }
 }
