@@ -181,14 +181,18 @@ namespace TranslationMemory
             {
                 foreach (Language language in GetLanguages())
                 {
-                    AbstractTranslation translation = TranslationFactory.GetTranslation(language, "", wordUuid, userUuid);
-                    Database.Instance.CreateTranslation(translation);
+                    SetTranslation(language, "", wordUuid, userUuid);
                 }
             }
             else
             {
                 Database.Instance.CreateTranslation(abstracttranslation);
             }
+        }
+        private void SetTranslation(Language language, string translation, string wordUuid, string userUuid)
+        {
+            AbstractTranslation t = TranslationFactory.GetTranslation(language, "", wordUuid, userUuid);
+            Database.Instance.CreateTranslation(t);
         }
         public void CreateLanguage(string language, string uuid)
         {
@@ -201,7 +205,7 @@ namespace TranslationMemory
             List<Word> words = GetWords();
             foreach (Word w in words)
             {
-                CreateTranslation(w._UUID, uuid, true, null);
+                SetTranslation(l, "", w._UUID, uuid);
             }
         }
         public List<AbstractTranslation> GetTranslations()
