@@ -18,8 +18,8 @@ namespace TranslationMemory
         }
         private void CreateAdminAndTranslator()
         {
-            InterfaceUser translator = (Translator)_dataTransferObject.CreateNewUser(Role.TRANSLATOR, Gender.MALE, "translator1234", 1234, new List<Word>(), new List<Translation>());
-            InterfaceUser admin = (Admin)_dataTransferObject.CreateNewUser(Role.ADMIN, Gender.MALE, "admin1234", 1234, new List<Word>(), new List<Translation>());
+            InterfaceUser translator = (Translator)_dataTransferObject.CreateNewUser(Role.TRANSLATOR, Gender.MALE, "translator1234", 1234, new List<Word>(), new List<AbstractTranslation>());
+            InterfaceUser admin = (Admin)_dataTransferObject.CreateNewUser(Role.ADMIN, Gender.MALE, "admin1234", 1234, new List<Word>(), new List<AbstractTranslation>());
             _dataTransferObject.SaveUser(translator, Role.TRANSLATOR);
             _dataTransferObject.SaveUser(admin, Role.ADMIN);
         }
@@ -228,6 +228,18 @@ namespace TranslationMemory
                             break;
                         }
 
+                        break;
+                    case "/create-new-language":
+                        string answerlanguage = _inputController.GetStringAnswer("Welche Sprache möchten sie hinzufügen?");
+                        if (_dataTransferObject.GetLanguage(answerlanguage) == null)
+                        {
+                            _dataTransferObject.CreateLanguage(answerlanguage);
+                        }
+                        else
+                        {
+                            _inputController.WriteString("Die Sprache " + answerlanguage + " wurde leider bereits angelegt.");
+                            _inputController.WriteErrorMessage();
+                        }
                         break;
                     default:
                         MainLifeCycleHandleInput();

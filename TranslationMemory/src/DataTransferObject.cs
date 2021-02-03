@@ -13,7 +13,7 @@ namespace TranslationMemory
         {
             _userFactory = new UserFactory();
         }
-        public InterfaceUser CreateNewUser(Role role, Gender gender, string username, int password, List<Word> words, List<Translation> translations)
+        public InterfaceUser CreateNewUser(Role role, Gender gender, string username, int password, List<Word> words, List<AbstractTranslation> translations)
         {
             switch (role)
             {
@@ -25,6 +25,7 @@ namespace TranslationMemory
                     return (User)_userFactory.GetUser(role, gender, username, password, words, translations, GetUUID());
             }
         }
+        // public Create
         public InterfaceUser LoginUser(string username, int password)
         {
             List<admin> admins = Database.Instance.GetAllAdmins();
@@ -34,7 +35,7 @@ namespace TranslationMemory
             {
                 if (a._userName == username && a._password == password)
                 {
-                    user = (Admin)_userFactory.GetUser(a.Role, a.Gender, a._userName, a._password, new List<Word>(), new List<Translation>(), a.UUID);
+                    user = (Admin)_userFactory.GetUser(a.Role, a.Gender, a._userName, a._password, null, null, a.UUID);
                     break;
                 }
             }
@@ -42,7 +43,12 @@ namespace TranslationMemory
             {
                 if (t._userName == username && t._password == password)
                 {
-                    user = (Translator)_userFactory.GetUser(t.Role, t.Gender, t._userName, t._password, t.AddedWords, t._addedTranslations, t.UUID);
+                    // List<Word> words = new List<Word>();
+                    // foreach (word w in t.AddedWords)
+                    // {
+                    //     words.Add(new Word(w._word, w._UUID));
+                    // }
+                    user = (Translator)_userFactory.GetUser(t.Role, t.Gender, t._userName, t._password, GetWords(t.AddedWords), GetTranslations(t._addedTranslations), t.UUID);
                     break;
                 }
             }
@@ -78,7 +84,7 @@ namespace TranslationMemory
             List<Translator> translators = new List<Translator>();
             foreach (translator t in translator)
             {
-                Translator trans = (Translator)_userFactory.GetUser(t.Role, t.Gender, t._userName, t._password, t.AddedWords, t._addedTranslations, t.UUID);
+                Translator trans = (Translator)_userFactory.GetUser(t.Role, t.Gender, t._userName, t._password, GetWords(t.AddedWords), GetTranslations(t._addedTranslations), t.UUID);
                 translators.Add(trans);
             }
             return translators;
@@ -115,6 +121,16 @@ namespace TranslationMemory
                 words.Add(word);
             }
             return words;
+        }
+        public List<Word> GetWords(List<word> words)
+        {
+            List<Word> newwordlist = new List<Word>();
+            foreach (word w in words)
+            {
+                Word word = new Word(w._word, w._UUID);
+                newwordlist.Add(word);
+            }
+            return newwordlist;
         }
         public string GetUUID()
         {
@@ -166,15 +182,25 @@ namespace TranslationMemory
             {
 
             }
-            // foreach (Language language in GetLanguages())
-
-            // {
-            // _translationFactory.
-            // }
+        }
+        public void CreateLanguage(string language)
+        {
+            Language l = new Language(language, language);
+            Database.Instance.AddLanguage(l);
         }
         public List<AbstractTranslation> GetTranslations()
         {
             List<translation> translations = Database.Instance.GetTranslations();
+            List<AbstractTranslation> transLation = new List<AbstractTranslation>();
+            foreach (translation trans in translations)
+            {
+                AbstractTranslation translation = TranslationFactory.GetTranslation(new Language(trans.LANGUAGE._name, trans.LANGUAGE.ID), trans.Translation, trans.WORD_ID, trans.AUTHOR);
+                transLation.Add(translation);
+            }
+            return transLation;
+        }
+        public List<AbstractTranslation> GetTranslations(List<translation> translations)
+        {
             List<AbstractTranslation> transLation = new List<AbstractTranslation>();
             foreach (translation trans in translations)
             {

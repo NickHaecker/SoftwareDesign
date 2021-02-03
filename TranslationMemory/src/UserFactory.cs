@@ -5,7 +5,7 @@ namespace TranslationMemory
 {
     class UserFactory
     {
-        public InterfaceUser GetUser(Role role, Gender gender, string username, int password, List<Word> words, List<Translation> translations, string uuid)
+        public InterfaceUser GetUser(Role role, Gender gender, string username, int password, List<Word> words, List<AbstractTranslation> translations, string uuid)
         {
             string ROLE = role.ToString().ToUpper();
             string USER = "User";
