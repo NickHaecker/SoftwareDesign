@@ -130,7 +130,7 @@ namespace TranslationMemory
                 switch (answer)
                 {
                     case "/logout":
-                        _inputController.WriteString("Aufwiedersehen und bis zum nächsten mal /n Wollen Sie sich erneut anmelden oder das Programm beenden?");
+                        _inputController.WriteString("Aufwiedersehen und bis zum nächsten mal \nWollen Sie sich erneut anmelden oder das Programm beenden?");
                         switch (_registeredUser.Role)
                         {
                             case Role.USER:
