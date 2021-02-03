@@ -131,7 +131,18 @@ namespace TranslationMemory
                 {
                     case "/logout":
                         _inputController.WriteString("Aufwiedersehen und bis zum nächsten mal /n Wollen Sie sich erneut anmelden oder das Programm beenden?");
-                        _dataTransferObject.SaveUser((User)_registeredUser, _registeredUser.Role);
+                        switch (_registeredUser.Role)
+                        {
+                            case Role.USER:
+                                _dataTransferObject.SaveUser((User)_registeredUser, _registeredUser.Role);
+                                break;
+                            case Role.TRANSLATOR:
+                                _dataTransferObject.SaveUser((Translator)_registeredUser, _registeredUser.Role);
+                                break;
+                            default:
+                                _dataTransferObject.SaveUser((Admin)_registeredUser, _registeredUser.Role);
+                                break;
+                        }
                         _registeredUser = null;
                         break;
                     case "/search-word":
