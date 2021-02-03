@@ -261,14 +261,11 @@ namespace TranslationMemory
         }
         private void SayingGoodbye()
         {
-            string answer = _inputController.GetStringAnswer("Geben Sie entweder /login, /guest oder /end ein um fortzufahren.");
+            string answer = _inputController.GetStringAnswer("Geben Sie entweder /start oder /end ein um fortzufahren.");
             switch (answer)
             {
-                case "/login":
-                    Login();
-                    break;
-                case "/guest":
-                    EnterAsUser();
+                case "/start":
+                    MainLifeCycle();
                     break;
                 case "/end":
                     break;
