@@ -190,10 +190,19 @@ namespace TranslationMemory
                 Database.Instance.CreateTranslation(abstracttranslation);
             }
         }
-        public void CreateLanguage(string language)
+        public void CreateLanguage(string language, string uuid)
         {
             Language l = new Language(language, language);
             Database.Instance.AddLanguage(l);
+            UpdateTranslationByCreatingNewLanguage(l, uuid);
+        }
+        private void UpdateTranslationByCreatingNewLanguage(Language l, string uuid)
+        {
+            List<Word> words = GetWords();
+            foreach (Word w in words)
+            {
+                CreateTranslation(w._UUID, uuid, true, null);
+            }
         }
         public List<AbstractTranslation> GetTranslations()
         {
@@ -269,7 +278,6 @@ namespace TranslationMemory
                 int count = 0;
                 foreach (AbstractTranslation translation in GetTranslationByWord(word))
                 {
-                    Console.WriteLine(1);
                     if (translation.Translation != "(Keine)")
                     {
                         count++;

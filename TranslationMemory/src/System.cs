@@ -212,7 +212,7 @@ namespace TranslationMemory
                         string answerlanguage = _inputController.GetStringAnswer("Welche Sprache möchten sie hinzufügen?");
                         if (_dataTransferObject.GetLanguage(answerlanguage) == null)
                         {
-                            _dataTransferObject.CreateLanguage(answerlanguage);
+                            _dataTransferObject.CreateLanguage(answerlanguage, _registeredUser.UUID);
                         }
                         else
                         {
@@ -232,10 +232,18 @@ namespace TranslationMemory
                         {
                             string w = _inputController.GetStringAnswer("Geben Sie das entsprechende Wort ein: ");
                             AbstractTranslation abstracttranslation = _dataTransferObject.GetWordWithMissingTranslation(w, language);
-                            string translation = _inputController.GetStringAnswer("Geben Sie die Übersetzung ein: ");
-                            abstracttranslation = translat.SetTranslation(abstracttranslation, translation);
-                            _dataTransferObject.SaveUser(translat, translat.Role);
-                            _dataTransferObject.CreateTranslation(null, null, false, abstracttranslation);
+                            if (abstracttranslation != null)
+                            {
+                                string translation = _inputController.GetStringAnswer("Geben Sie die Übersetzung ein: ");
+                                abstracttranslation = translat.SetTranslation(abstracttranslation, translation);
+                                _dataTransferObject.SaveUser(translat, translat.Role);
+                                _dataTransferObject.CreateTranslation(null, null, false, abstracttranslation);
+                            }
+                            else
+                            {
+                                _inputController.WriteString("Für dieses Wort gibt es bereits eine Übersetzung");
+                            }
+
                         }
                         else
                         {
