@@ -129,20 +129,28 @@ namespace TranslationMemory
                         Word WORD = _dataTransferObject.GetWord(word);
                         if (WORD == null)
                         {
-                            _inputController.WriteString("Tut uns leid, das Wort " + word + " haben wir leider nicht in unserem System gefunden, wir fügen ihnen Ihr Wort dem System hinzu");
-                            Word _word = _dataTransferObject.CreateWord(word);
-                            switch (_registeredUser.Role)
+                            _inputController.WriteString("Tut uns leid, das Wort " + word + " haben wir leider nicht in unserem System gefunden.");
+                            string boolanswer = _inputController.GetStringAnswer("Wollen Sie das Wort erstellen? Tippe /ja um das Wort zu ertsellen, oder /nein um den Prozess zu beenden");
+                            if (boolanswer == "/ja")
                             {
-                                case Role.TRANSLATOR:
-                                    Translator t = (Translator)_registeredUser;
-                                    CreateTranslations(_word._UUID, t.UUID);
-                                    t.SaveWord(_word);
-                                    break;
-                                default:
-                                    User u = (User)_registeredUser;
-                                    CreateTranslations(_word._UUID, u.UUID);
-                                    u.SaveWord(_word);
-                                    break;
+                                Word _word = _dataTransferObject.CreateWord(word);
+                                switch (_registeredUser.Role)
+                                {
+                                    case Role.TRANSLATOR:
+                                        Translator t = (Translator)_registeredUser;
+                                        CreateTranslations(_word._UUID, t.UUID);
+                                        t.SaveWord(_word);
+                                        break;
+                                    default:
+                                        User u = (User)_registeredUser;
+                                        CreateTranslations(_word._UUID, u.UUID);
+                                        u.SaveWord(_word);
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                break;
                             }
                         }
                         else

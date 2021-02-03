@@ -150,7 +150,7 @@ namespace TranslationMemory
         {
             foreach (Word w in GetWords())
             {
-                if (w._word == word)
+                if (w._word.ToLower() == word.ToLower())
                 {
                     return w;
                 }
