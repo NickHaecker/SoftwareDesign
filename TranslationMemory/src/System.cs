@@ -10,8 +10,6 @@ namespace TranslationMemory
         private DataTransferObject _dataTransferObject = null;
         private ConsoleController _inputController = null;
 
-        // private bool test = false;
-
         public System()
         {
             _dataTransferObject = new DataTransferObject();
@@ -29,7 +27,6 @@ namespace TranslationMemory
         {
             string username = _inputController.GetStringAnswer("Bitte erstellen sie ihren Benutzernamen: ");
             int password = _inputController.GetIntAnswer();
-            // Database.Instance.
         }
         private void EnterAsUser()
         {
@@ -51,9 +48,34 @@ namespace TranslationMemory
         {
             string username = _inputController.GetStringAnswer("Bitte geben Sie ihren Benutzernamen ein: ");
             int password = _inputController.GetIntAnswer();
-            _inputController.WriteString(username);
-            _inputController.WriteInt(password);
+            // _inputController.WriteString(username);
+            // _inputController.WriteInt(password);
             // Database.Instance
+            if (_dataTransferObject.LoginUser(username, password) != null)
+            {
+                InterfaceUser u = _dataTransferObject.LoginUser(username, password);
+                string name = "";
+                switch (u.Role)
+                {
+                    case Role.TRANSLATOR:
+                        Translator t = (Translator)u;
+                        name = t._userName;
+                        _registeredUser = (Translator)u;
+                        break;
+                    default:
+                        Admin a = (Admin)u;
+                        name = a._userName;
+                        _registeredUser = (Admin)u;
+                        break;
+                }
+                _inputController.WriteString("####################### Herzlich Willkommen ################## \nGuten Tag " + name + ", Sie haben sich erfolgreich angmeldet!");
+            }
+            else
+            {
+                _inputController.WriteErrorMessage();
+                _inputController.WriteString("Sie müssen Ihren richtigen Usernamen und ihr richtiges Passwort eingeben um sich anmelden zu könenn!");
+                Login();
+            }
         }
         public void MainLifeCycle()
         {
@@ -81,16 +103,16 @@ namespace TranslationMemory
         }
         private void WelcomeView()
         {
-            string answer = _inputController.GetStringAnswer("Willst du dich Registrieren oder hast du bereits ein Konto bei uns? Tippe '/register' um dich zu registerieren, '/guest' um als User fortzufahren oder '/login' um dich anzumelden.");
+            string answer = _inputController.GetStringAnswer("Willst du dich Registrieren oder hast du bereits ein Konto bei uns? Tippe '/guest' um als User fortzufahren oder '/login' um dich anzumelden.");
             _inputController.WriteString(answer);
             switch (answer)
             {
                 case "/login":
                     Login();
                     break;
-                case "/register":
-                    RegisterUser();
-                    break;
+                // case "/register":
+                //     RegisterUser();
+                //     break;
                 case "/guest":
                     EnterAsUser();
                     break;

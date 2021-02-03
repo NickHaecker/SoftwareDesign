@@ -25,18 +25,65 @@ namespace TranslationMemory
                     return (User)_userFactory.GetUser(role, gender, username, password, words, translations, GetUUID());
             }
         }
-        public InterfaceUser CreateUser(string username, int password)
+        public InterfaceUser LoginUser(string username, int password)
         {
-            // switch (role)
-            // {
-            //     case Role.ADMIN:
-            //         return (Admin)_userFactory.GetUser(role, gender, username, password, words, translations, uuid);
-            //     case Role.TRANSLATOR:
-            //         return (Translator)_userFactory.GetUser(role, gender, username, password, words, translations, uuid);
-            //     default:
-            //         return (User)_userFactory.GetUser(role, gender, username, password, words, translations, uuid);
-            // }
-            return null;
+            List<admin> admins = Database.Instance.GetAllAdmins();
+            List<translator> translator = Database.Instance.GetAllTranslator();
+            InterfaceUser user = null;
+            foreach (admin a in admins)
+            {
+                if (a._userName == username && a._password == password)
+                {
+                    user = (Admin)_userFactory.GetUser(a.Role, a.Gender, a._userName, a._password, new List<Word>(), new List<Translation>(), a.UUID);
+                    break;
+                }
+            }
+            foreach (translator t in translator)
+            {
+                if (t._userName == username && t._password == password)
+                {
+                    user = (Translator)_userFactory.GetUser(t.Role, t.Gender, t._userName, t._password, t.AddedWords, t._addedTranslations, t.UUID);
+                    break;
+                }
+            }
+            if (user != null)
+            {
+                switch (user.Role)
+                {
+                    case Role.ADMIN:
+                        return (Admin)user;
+                    default:
+                        return (Translator)user;
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+        private Role GetRole(int index)
+        {
+            switch (index)
+            {
+                case 0:
+                    return Role.USER;
+                case 1:
+                    return Role.TRANSLATOR;
+                default:
+                    return Role.USER;
+            }
+        }
+        private Gender GetGender(int index)
+        {
+            switch (index)
+            {
+                case 0:
+                    return Gender.MALE;
+                case 1:
+                    return Gender.FEMALE;
+                default:
+                    return Gender.DIVERS;
+            }
         }
         public List<Language> GetLanguages()
         {

@@ -54,6 +54,7 @@ namespace TranslationMemory
             }
             WriteFile(file, jsonString);
         }
+
         private void WriteFile(string file, string jsonString)
         {
             File.WriteAllText(file, jsonString);
@@ -138,6 +139,28 @@ namespace TranslationMemory
                 translations.Add(t);
             }
             return translations;
+        }
+        public List<translator> GetAllTranslator()
+        {
+            List<translator> translator = new List<translator>();
+            foreach (string jsonString in GetFileNames(TRANSLATOR_PATH))
+            {
+                translator t;
+                t = JsonSerializer.Deserialize<translator>(jsonString);
+                translator.Add(t);
+            }
+            return translator;
+        }
+        public List<admin> GetAllAdmins()
+        {
+            List<admin> admins = new List<admin>();
+            foreach (string jsonString in GetFileNames(ADMIN_PATH))
+            {
+                admin a;
+                a = JsonSerializer.Deserialize<admin>(jsonString);
+                admins.Add(a);
+            }
+            return admins;
         }
         // public List<AbstractTranslation> GetTranslations()
     }
