@@ -13,26 +13,5 @@ namespace TranslationMemory
             _UUID = uuid;
             _word = word;
         }
-        public void AddTranslation(DataTransferObject dto)
-        {
-
-        }
-        public void EditTranslation(AbstractTranslation translation)
-        {
-
-        }
-        public List<AbstractTranslation> GetTranslations()
-        {
-            return null;
-        }
-        public AbstractTranslation GetTranslation(Language language)
-        {
-            return null;
-        }
-        public AbstractTranslation GetTranslation(string translation)
-        {
-            return null;
-        }
-
     }
 }

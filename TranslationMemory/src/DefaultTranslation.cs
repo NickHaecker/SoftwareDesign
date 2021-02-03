@@ -10,14 +10,9 @@ namespace TranslationMemory
         {
             Translation = translation;
         }
-        //         public override translation GetThis()
-        //         {
-        // translation t = new translation();
-        // t.AUTHOR = AUTHOR;
-        // t.LANGUAGE = LANGUAGE;
-        // t.WORD_ID = WORD_ID;
-        // t.
-        //             return ;
-        //         }
+        public override void SetAuthor(string author)
+        {
+            AUTHOR = author;
+        }
     }
 }

@@ -134,6 +134,7 @@ namespace TranslationMemory
                             switch (_registeredUser.Role)
                             {
                                 case Role.TRANSLATOR:
+                                    Console.WriteLine("L137");
                                     Translator t = (Translator)_registeredUser;
                                     CreateTranslations(_word._UUID, t.UUID);
                                     t.SaveWord(_word);
@@ -220,6 +221,28 @@ namespace TranslationMemory
                             _inputController.WriteErrorMessage();
                         }
                         break;
+                    case "/list-words-with-uncompletet-translations":
+                        ListWords();
+                        break;
+                    case "/add-translation":
+                        ListWords();
+                        Translator translat = (Translator)_registeredUser;
+                        Language language = translat._language;
+                        _inputController.WriteString("Ihre Sprache ist " + language._name);
+                        if (language != null)
+                        {
+                            string w = _inputController.GetStringAnswer("Geben Sie das entsprechende Wort ein: ");
+                            AbstractTranslation abstracttranslation = _dataTransferObject.GetWordWithMissingTranslation(w, language);
+                            string translation = _inputController.GetStringAnswer("Geben Sie die Übersetzung ein: ");
+                            abstracttranslation = translat.SetTranslation(abstracttranslation, translation);
+                            _dataTransferObject.SaveUser(translat, translat.Role);
+                            _dataTransferObject.CreateTranslation(null, null, false, abstracttranslation);
+                        }
+                        else
+                        {
+                            _inputController.WriteString("Ihnen wurde leider noch keine Sprache zugewiesen");
+                        }
+                        break;
                     default:
                         MainLifeCycleHandleInput();
                         break;
@@ -230,10 +253,6 @@ namespace TranslationMemory
                 _inputController.WriteErrorMessage();
                 MainLifeCycleHandleInput();
             }
-
-        }
-        private void ShowUncompleteTranslatetWords()
-        {
 
         }
         private void SayingGoodbye()
@@ -256,13 +275,14 @@ namespace TranslationMemory
             }
 
         }
-        private void HandleInput(string answer)
-        {
-
-        }
         private void CreateTranslations(string wordUuid, string userUuid)
         {
-            _dataTransferObject.CreateTranslation(wordUuid, userUuid, true);
+            _dataTransferObject.CreateTranslation(wordUuid, userUuid, true, null);
+        }
+        private void ListWords()
+        {
+            List<string> uncorrecttranslatetwords = _dataTransferObject.GetUncompleteTranslatetWords();
+            _inputController.WriteStringList(uncorrecttranslatetwords, "Diese Wörter haben keine vollständige Übersetzung\n", null);
         }
     }
 }

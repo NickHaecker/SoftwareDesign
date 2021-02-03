@@ -157,13 +157,25 @@ namespace TranslationMemory
             }
             return null;
         }
+        public AbstractTranslation GetWordWithMissingTranslation(string word, Language language)
+        {
+            Word w = GetWord(word);
+            if (w != null)
+            {
+                if (FilteredTranslationByWord(w, language) != null && FilteredTranslationByWord(w, language).Translation == "(Keine)")
+                {
+                    return FilteredTranslationByWord(w, language);
+                }
+            }
+            return null;
+        }
         public Word CreateWord(string word)
         {
             Word newWord = new Word(word, GetUUID());
             Database.Instance.SaveWord(newWord);
             return newWord;
         }
-        public void CreateTranslation(string wordUuid, string userUuid, bool createInitialTranslation)
+        public void CreateTranslation(string wordUuid, string userUuid, bool createInitialTranslation, AbstractTranslation abstracttranslation)
         {
             if (createInitialTranslation)
             {
@@ -175,7 +187,7 @@ namespace TranslationMemory
             }
             else
             {
-
+                Database.Instance.CreateTranslation(abstracttranslation);
             }
         }
         public void CreateLanguage(string language)
@@ -216,6 +228,17 @@ namespace TranslationMemory
             }
             return wordTranslations;
         }
+        public AbstractTranslation FilteredTranslationByWord(Word word, Language language)
+        {
+            foreach (AbstractTranslation at in GetTranslationByWord(word))
+            {
+                if (at.LANGUAGE._name == language._name)
+                {
+                    return at;
+                }
+            }
+            return null;
+        }
         public int GetWordsInDatabaseLength()
         {
             return GetWords().Count;
@@ -233,8 +256,29 @@ namespace TranslationMemory
                         count++;
                     }
                 }
-                string wordCount = "Für das Wort " + word._word + " ist die Übersetzung zu " + CalculatePercentage(GetTranslationByWord(word).Count, count) + "%" + " vollstädnig.";
+                string wordCount = word._word + "(" + CalculatePercentage(GetTranslationByWord(word).Count, count) + "%" + ")";
                 counts.Add(wordCount);
+            }
+            return counts;
+        }
+        public List<string> GetUncompleteTranslatetWords()
+        {
+            List<string> counts = new List<string>();
+            foreach (Word word in GetWords())
+            {
+                int count = 0;
+                foreach (AbstractTranslation translation in GetTranslationByWord(word))
+                {
+                    if (translation.Translation != "(Keine)")
+                    {
+                        count++;
+                    }
+                }
+                if (CalculatePercentage(GetTranslationByWord(word).Count, count) < 100)
+                {
+                    string wordCount = word._word + " (" + CalculatePercentage(GetTranslationByWord(word).Count, count) + "%" + ")";
+                    counts.Add(wordCount);
+                }
             }
             return counts;
         }

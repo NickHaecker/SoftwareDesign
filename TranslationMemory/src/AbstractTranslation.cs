@@ -15,7 +15,6 @@ namespace TranslationMemory
             AUTHOR = author;
         }
         public abstract void SetTranslation(string translation);
-
-        // public abstract translation GetThis();
+        public abstract void SetAuthor(string author);
     }
 }

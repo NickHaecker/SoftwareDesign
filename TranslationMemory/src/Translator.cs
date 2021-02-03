@@ -22,21 +22,12 @@ namespace TranslationMemory
         {
             _language = language;
         }
-        public void SetTranslation(Word word)
+        public AbstractTranslation SetTranslation(AbstractTranslation abstracttranslation, string translation)
         {
-
-        }
-        public void SaveTranslation(AbstractTranslation translation)
-        {
-
-        }
-        public List<AbstractTranslation> GetCreatedTranslations()
-        {
-            return null;
-        }
-        public void UpdateTranslation(AbstractTranslation translation)
-        {
-
+            abstracttranslation.SetTranslation(translation);
+            abstracttranslation.SetAuthor(_userName);
+            _addedTranslations.Add(abstracttranslation);
+            return abstracttranslation;
         }
     }
 }

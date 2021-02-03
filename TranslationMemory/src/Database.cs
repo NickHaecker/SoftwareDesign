@@ -59,7 +59,6 @@ namespace TranslationMemory
         {
             File.WriteAllText(file, jsonString);
         }
-        // public void AddTranslator()
         public Word GetWord(string id)
         {
             return null;
@@ -86,10 +85,6 @@ namespace TranslationMemory
             string file = WORD_PATH + "/" + word._UUID + ".json";
             WriteFile(file, jsonString);
             Console.WriteLine("Wort: " + word._word + " wurde ins System gestellt");
-        }
-        public void SaveWord(InterfaceUser user)
-        {
-
         }
         public void AddLanguage(Language language)
         {
@@ -162,6 +157,5 @@ namespace TranslationMemory
             }
             return admins;
         }
-        // public List<AbstractTranslation> GetTranslations()
     }
 }
