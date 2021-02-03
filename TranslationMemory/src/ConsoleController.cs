@@ -35,6 +35,7 @@ namespace TranslationMemory
             _commands.Add(new Command("/create-new-language", new string[] { "TranslationMemory.Admin" }));
             _commands.Add(new Command("/list-words-with-uncompletet-translations", new string[] { "TranslationMemory.Translator" }));
             _commands.Add(new Command("/add-translation", new string[] { "TranslationMemory.Translator" }));
+            _commands.Add(new Command("/show-my-translations", new string[] { "TranslationMemory.Translator" }));
         }
         public List<string> GetUserSpecificCommands()
         {

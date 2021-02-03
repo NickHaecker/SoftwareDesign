@@ -8,10 +8,10 @@ namespace TranslationMemory
         public Gender Gender { get; set; }
         public Role Role { get; set; }
         public string UUID { get; set; }
-        public List<word> AddedWords = new List<word>();
+        public List<word> AddedWords { get; set; }
         public string _userName { get; set; }
         public int _password { get; set; }
         public language _language { get; set; }
-        public List<translation> _addedTranslations = new List<translation>();
+        public List<translation> _addedTranslations { get; set; }
     }
 }

@@ -242,6 +242,11 @@ namespace TranslationMemory
                             _inputController.WriteString("Ihnen wurde leider noch keine Sprache zugewiesen");
                         }
                         break;
+                    case "/show-my-translations":
+                        Translator tra = (Translator)_registeredUser;
+                        int countedtranslations = tra._addedTranslations.Count;
+                        _inputController.WriteString("Du hast " + countedtranslations + " Übersetzungen angelegt.");
+                        break;
                     default:
                         MainLifeCycleHandleInput();
                         break;
