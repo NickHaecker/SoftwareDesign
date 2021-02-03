@@ -61,29 +61,27 @@ namespace TranslationMemory
                 return null;
             }
         }
-        private Role GetRole(int index)
+        public InterfaceUser GetTranslator(string username)
         {
-            switch (index)
+            foreach (Translator t in GetAllTranslator())
             {
-                case 0:
-                    return Role.USER;
-                case 1:
-                    return Role.TRANSLATOR;
-                default:
-                    return Role.USER;
+                if (t._userName == username)
+                {
+                    return t;
+                }
             }
+            return null;
         }
-        private Gender GetGender(int index)
+        public List<Translator> GetAllTranslator()
         {
-            switch (index)
+            List<translator> translator = Database.Instance.GetAllTranslator();
+            List<Translator> translators = new List<Translator>();
+            foreach (translator t in translator)
             {
-                case 0:
-                    return Gender.MALE;
-                case 1:
-                    return Gender.FEMALE;
-                default:
-                    return Gender.DIVERS;
+                Translator trans = (Translator)_userFactory.GetUser(t.Role, t.Gender, t._userName, t._password, t.AddedWords, t._addedTranslations, t.UUID);
+                translators.Add(trans);
             }
+            return translators;
         }
         public List<Language> GetLanguages()
         {
@@ -95,6 +93,17 @@ namespace TranslationMemory
                 languages.Add(language);
             }
             return languages;
+        }
+        public Language GetLanguage(string language)
+        {
+            foreach (Language l in GetLanguages())
+            {
+                if (language == l._name)
+                {
+                    return l;
+                }
+            }
+            return null;
         }
         public List<Word> GetWords()
         {

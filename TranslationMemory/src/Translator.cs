@@ -20,7 +20,7 @@ namespace TranslationMemory
         }
         public void SetLanguage(Language language)
         {
-
+            _language = language;
         }
         public void SetTranslation(Word word)
         {

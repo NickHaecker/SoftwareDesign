@@ -123,7 +123,7 @@ namespace TranslationMemory
         }
         private void MainLifeCycleHandleInput()
         {
-            _inputController.WriteStringList(_inputController.GetUserSpecificCommands(), "Zwischen folgende Konsolenbefehle können sie auswählen: ", null);
+            _inputController.WriteStringList(_inputController.GetUserSpecificCommands(), "\n\n\nZwischen folgende Konsolenbefehle können sie auswählen: ", null);
             string answer = _inputController.GetStringAnswer();
             if (_inputController.IsInputCorrectAt(answer))
             {
@@ -190,6 +190,44 @@ namespace TranslationMemory
                         string count = "Zurzeit sind " + _dataTransferObject.GetWordsInDatabaseLength() + " in der Datenbank gespeichert";
                         List<string> percentages = _dataTransferObject.GetPercentageOfCorrectTranslatetWords();
                         _inputController.WriteStringList(percentages, count, null);
+                        break;
+                    case "/give-translator-a-language":
+                        List<Translator> translator = _dataTransferObject.GetAllTranslator();
+                        _inputController.WriteString("Diesen Übersetzter wurde noch keine Sprache zugewiesen: ");
+                        foreach (Translator t in translator)
+                        {
+                            if (t._language == null)
+                            {
+                                _inputController.WriteString(t._userName);
+                            }
+                        }
+                        List<Language> languages = _dataTransferObject.GetLanguages();
+                        _inputController.WriteString("Diese Sprachen sind im System Hinterlegt: ");
+                        foreach (Language l in languages)
+                        {
+                            _inputController.WriteString(l._name);
+                        }
+                        Translator trans = (Translator)_dataTransferObject.GetTranslator(_inputController.GetStringAnswer("Welchem Übersetzer möchten Sie eine Sprache zuweisen ?"));
+                        if (trans != null)
+                        {
+                            Language gotlanguage = _dataTransferObject.GetLanguage(_inputController.GetStringAnswer("Welche Sprache möchten Sie Ihm zuweisen?"));
+                            if (gotlanguage != null)
+                            {
+                                trans.SetLanguage(gotlanguage);
+                                _dataTransferObject.SaveUser(trans, trans.Role);
+                            }
+                            else
+                            {
+                                _inputController.WriteErrorMessage();
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            _inputController.WriteErrorMessage();
+                            break;
+                        }
+
                         break;
                     default:
                         MainLifeCycleHandleInput();
