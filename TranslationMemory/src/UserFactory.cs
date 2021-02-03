@@ -5,7 +5,7 @@ namespace TranslationMemory
 {
     class UserFactory
     {
-        public InterfaceUser GetUser(Role role, Gender gender, string username, int password, List<Word> words, List<AbstractTranslation> translations, string uuid)
+        public InterfaceUser GetUser(Role role, Gender gender, string username, int password, List<Word> words, List<AbstractTranslation> translations, string uuid, Language language)
         {
             string ROLE = role.ToString().ToUpper();
             string USER = "User";
@@ -17,7 +17,7 @@ namespace TranslationMemory
             }
             else if (ROLE == TRANSLATOR.ToUpper())
             {
-                return new Translator(gender, role, username, password, null, translations, words, uuid);
+                return new Translator(gender, role, username, password, language, translations, words, uuid);
             }
             else if (ROLE == ADMIN.ToUpper())
             {

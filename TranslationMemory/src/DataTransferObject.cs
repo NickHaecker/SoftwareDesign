@@ -18,11 +18,11 @@ namespace TranslationMemory
             switch (role)
             {
                 case Role.ADMIN:
-                    return (Admin)_userFactory.GetUser(role, gender, username, password, words, translations, GetUUID());
+                    return (Admin)_userFactory.GetUser(role, gender, username, password, words, translations, GetUUID(), null);
                 case Role.TRANSLATOR:
-                    return (Translator)_userFactory.GetUser(role, gender, username, password, words, translations, GetUUID());
+                    return (Translator)_userFactory.GetUser(role, gender, username, password, words, translations, GetUUID(), null);
                 default:
-                    return (User)_userFactory.GetUser(role, gender, username, password, words, translations, GetUUID());
+                    return (User)_userFactory.GetUser(role, gender, username, password, words, translations, GetUUID(), null);
             }
         }
         // public Create
@@ -35,7 +35,7 @@ namespace TranslationMemory
             {
                 if (a._userName == username && a._password == password)
                 {
-                    user = (Admin)_userFactory.GetUser(a.Role, a.Gender, a._userName, a._password, null, null, a.UUID);
+                    user = (Admin)_userFactory.GetUser(a.Role, a.Gender, a._userName, a._password, null, null, a.UUID, null);
                     break;
                 }
             }
@@ -43,12 +43,7 @@ namespace TranslationMemory
             {
                 if (t._userName == username && t._password == password)
                 {
-                    // List<Word> words = new List<Word>();
-                    // foreach (word w in t.AddedWords)
-                    // {
-                    //     words.Add(new Word(w._word, w._UUID));
-                    // }
-                    user = (Translator)_userFactory.GetUser(t.Role, t.Gender, t._userName, t._password, GetWords(t.AddedWords), GetTranslations(t._addedTranslations), t.UUID);
+                    user = (Translator)_userFactory.GetUser(t.Role, t.Gender, t._userName, t._password, GetWords(t.AddedWords), GetTranslations(t._addedTranslations), t.UUID, GetLanguage(t._language));
                     break;
                 }
             }
@@ -84,7 +79,7 @@ namespace TranslationMemory
             List<Translator> translators = new List<Translator>();
             foreach (translator t in translator)
             {
-                Translator trans = (Translator)_userFactory.GetUser(t.Role, t.Gender, t._userName, t._password, GetWords(t.AddedWords), GetTranslations(t._addedTranslations), t.UUID);
+                Translator trans = (Translator)_userFactory.GetUser(t.Role, t.Gender, t._userName, t._password, GetWords(t.AddedWords), GetTranslations(t._addedTranslations), t.UUID, GetLanguage(t._language));
                 translators.Add(trans);
             }
             return translators;
@@ -246,6 +241,11 @@ namespace TranslationMemory
         private int CalculatePercentage(int length, int count)
         {
             return count / length * 100;
+        }
+        private Language GetLanguage(language l)
+        {
+            Language language = new Language(l._name, l.ID);
+            return language;
         }
     }
 }

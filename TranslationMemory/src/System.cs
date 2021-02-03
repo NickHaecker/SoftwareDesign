@@ -31,7 +31,6 @@ namespace TranslationMemory
         private void EnterAsUser()
         {
             string answer = _inputController.GetStringAnswer("Bitte geben sie ihr geschlecht ein. Sie können wählen zwischen 'Male', 'Female' oder 'Divers'");
-            // string answer = "Male";
             if (answer.ToUpper() != _inputController.GetGender(answer).ToString())
             {
                 _inputController.WriteString("Tut mir leid, aber ihre Eingabe war leider nicht richtig");
@@ -40,17 +39,11 @@ namespace TranslationMemory
             Role role = Role.USER;
             Gender gender = _inputController.GetGender(answer);
             _registeredUser = (User)_dataTransferObject.CreateNewUser(role, gender, null, 0, new List<Word>(), null);
-            // _dataTransferObject.SaveUser((User)_registeredUser, _registeredUser.Role);
-            // List<Language> l = _dataTransferObject.GetLanguages();
-            // Database.Instance.SaveUser((User)_registeredUser, Role.USER);
         }
         private void Login()
         {
             string username = _inputController.GetStringAnswer("Bitte geben Sie ihren Benutzernamen ein: ");
             int password = _inputController.GetIntAnswer();
-            // _inputController.WriteString(username);
-            // _inputController.WriteInt(password);
-            // Database.Instance
             if (_dataTransferObject.LoginUser(username, password) != null)
             {
                 InterfaceUser u = _dataTransferObject.LoginUser(username, password);
@@ -81,23 +74,9 @@ namespace TranslationMemory
         {
             WelcomeView();
             _inputController.InitCommands(_registeredUser.GetType().ToString());
-
-            // EnterAsUser();
-            // int i = 0;
             while (_registeredUser != null)
             {
-
                 MainLifeCycleHandleInput();
-                // Console.WriteLine(_registeredUser.GetType());
-                // Console.WriteLine("Main Programm");
-
-
-                // if (i == 25)
-                // {
-
-                //     _registeredUser = null;
-                // }
-                // i++;
             }
             SayingGoodbye();
         }
