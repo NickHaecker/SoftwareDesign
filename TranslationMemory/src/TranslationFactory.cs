@@ -12,7 +12,7 @@ namespace TranslationMemory
             }
             else
             {
-                return new DefaultTranslation(language, "(Keine)", id, null);
+                return new DefaultTranslation(language, "(Keine)", id, author);
             }
         }
     }

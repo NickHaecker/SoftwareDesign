@@ -256,7 +256,7 @@ namespace TranslationMemory
                         count++;
                     }
                 }
-                string wordCount = word._word + "(" + CalculatePercentage(GetTranslationByWord(word).Count, count) + "%" + ")";
+                string wordCount = word._word + " (" + CalculatePercentage(GetTranslationByWord(word).Count, count) + "%" + ")";
                 counts.Add(wordCount);
             }
             return counts;
@@ -269,6 +269,7 @@ namespace TranslationMemory
                 int count = 0;
                 foreach (AbstractTranslation translation in GetTranslationByWord(word))
                 {
+                    Console.WriteLine(1);
                     if (translation.Translation != "(Keine)")
                     {
                         count++;
@@ -282,9 +283,10 @@ namespace TranslationMemory
             }
             return counts;
         }
-        private int CalculatePercentage(int length, int count)
+        private double CalculatePercentage(double length, double count)
         {
-            return count / length * 100;
+            double sum = ((count / length) * 100);
+            return sum;
         }
         private Language GetLanguage(language l)
         {

@@ -88,16 +88,16 @@ namespace TranslationMemory
             {
                 case "/login":
                     Login();
-                    break;
+                    return;
                 // case "/register":
                 //     RegisterUser();
                 //     break;
                 case "/guest":
                     EnterAsUser();
-                    break;
+                    return;
                 default:
                     WelcomeView();
-                    break;
+                    return;
             }
         }
         private void MainLifeCycleHandleInput()
@@ -134,7 +134,6 @@ namespace TranslationMemory
                             switch (_registeredUser.Role)
                             {
                                 case Role.TRANSLATOR:
-                                    Console.WriteLine("L137");
                                     Translator t = (Translator)_registeredUser;
                                     CreateTranslations(_word._UUID, t.UUID);
                                     t.SaveWord(_word);
