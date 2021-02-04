@@ -37,17 +37,5 @@ namespace TranslationMemory
             _password = password;
             _UUID = uuid;
         }
-        public void DelegateTranslator(Translator translator, Language language)
-        {
-
-        }
-        public void AddLanguage(Language language)
-        {
-
-        }
-        public Word WordSearch(string id, string word)
-        {
-            return null;
-        }
     }
 }

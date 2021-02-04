@@ -26,10 +26,6 @@ namespace TranslationMemory
         private string WORD_PATH = "./db/word";
         private string LANGUAGE_PATH = "./db/language/";
 
-        public InterfaceUser GetUser(string username, int password)
-        {
-            return null;
-        }
         public void SaveUser(InterfaceUser user, Role role)
         {
             string jsonString;
@@ -58,19 +54,6 @@ namespace TranslationMemory
         private void WriteFile(string file, string jsonString)
         {
             File.WriteAllText(file, jsonString);
-        }
-        public Word GetWord(string id)
-        {
-            return null;
-        }
-        public AbstractTranslation GetTranslation(Language language)
-        {
-            return null;
-        }
-
-        public AbstractTranslation GetTranslation(InterfaceUser user)
-        {
-            return null;
         }
         public void CreateTranslation(AbstractTranslation translation)
         {
